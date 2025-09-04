@@ -4,13 +4,10 @@ import Asesorias from "@/components/full/Asesorias";
 import Resenas from "@/components/full/Resenas";
 import Valoracion from "@/components/full/Valoracion";
 
-export default function Home() {
+export default function ValoracionGratuita() {
   return (
     <div className=" bg-blue-500 text-white font-bold pb-10">
-      <Hero />
-      <QuienSoy />
-      <Asesorias />
-      <Resenas />
+      <h2>Servicios</h2>
       <Valoracion />
     </div>
   );
