@@ -2,7 +2,7 @@ import Hero from "@/components/layout/Hero";
 import QuienSoy from "@/components/full/QuienSoy";
 import Asesorias from "@/components/full/Asesorias";
 import Resenas from "@/components/full/Resenas";
-import Valoracion from "@/components/full/Valoracion";
+import Valoracion from "@/components/full/Planes";
 
 export default function Home() {
   return (
