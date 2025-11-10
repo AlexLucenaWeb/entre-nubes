@@ -12,7 +12,7 @@ const HeaderNav = () => {
 
     return (
         <div data-component="Header" className="w-full flex justify-center bg-green-bg text-navy py-5">
-            <div className="w-full lg:max-w-7xl px-5 flex justify-between items-center">
+            <div className="w-full lg:max-w-[1800px] px-5 flex justify-between items-center">
                 <div className="flex gap-4 items-center">
                     <Image
                         src="/images/entrenubes.png"
@@ -24,9 +24,9 @@ const HeaderNav = () => {
                     />
                 </div>
 
-                <nav className="flex gap-4">
+                <nav className="flex gap-8">
                     {headerLinks.map((link, index)=>(
-                        <button key={index} className={`cursor-pointer ${link.label === "CONTACTA" && "text-sm bg-navy text-white rounded-full hover:shadow-xl font-medium px- py-2 transition-all duration-300"}`}>
+                        <button key={index} className={`cursor-pointer ${link.label === "CONTACTA" && "text-sm bg-navy text-white rounded-full hover:shadow-xl font-medium px-4 py-2 transition-all duration-300"}`}>
                             {link.label} 
                         </button>
                     ))}

@@ -1,20 +1,32 @@
-import Button from "../partial/Button"
+import CloudDivider from "./CloudDivider"
+import Image from "next/image"
 
 const Hero = () => {
 
     return (
-        <div data-component="Hero" className="w-full flex justify-center bg-blue-500 min-h-96">
-            <div className="max-w-6xl py-20 px-5 flex flex-col justify-between items-start">
-                <div className="mb-10">
-                    <h1 className="text-5xl sm:text-6xl md:text-7xl mb-2 text-white font-bold">Entre Nubes</h1>
-                    <p className="text-xl sm:text-2xl">Asesoramiento de Sueño Infantil Respetuso</p>
+        <section data-component="Hero" className="w-full flex justify-center bg-green-bg pt-20 pb-40 relative">
+            <div className="grid grid-cols-12 max-w-[1580px] py-20 px-10 gap-16">
+                <div className="mb-10 col-span-7 space-y-9">
+                    <p className="bg-yellow text-navy text-lg px-6 py-2 rounded-full max-w-max">Sueño tranquilo, crianza consciente. Acompañamos cada paso.</p>
+                    <h1 className="text-4xl sm:text-5xl md:text-6xl text-green font-bold">Porque descansar es una necesidad, mi propósito es acompañarte</h1>
+                    <p className="text-xl text-gray">Entre nubes nace como un espacio de acompañamiento a familias que desean mejorar el descanso en casa. Mi enfoque es cercano y personalizado, poniendo siempre en el centro las necesidades y el bienestar de cada bebé, con respeto y cuidado en cada paso del proceso.</p>
+                    <p className="text-xl text-navy">Si quieres transformar el descanso de tu bebé y recuperar la armonía familiar, estaré encantada de acompañarte.</p>
+                    <button className="bg-navy text-white px-12 py-3 rounded-full text-lg font-bold transition-all hover:shadow-xl cursor-pointer">VALORACIÓN GRATUITA</button>
                 </div>
-                <div className="flex flex-col sm:flex-row gap-4">
-                    <Button label="CTA 1"/>
-                    <Button label="CTA 2"/>
+                <div className="col-span-5">
+                    <Image
+                        src="/images/hero_image.svg"
+                        alt="Entrenubes"
+                        width={541}
+                        height={541}
+                        priority  
+                    />
                 </div>
             </div>
-        </div>
+            <div className="pointer-events-none absolute inset-x-0 bottom-0 h-24 md:h-32 lg:h-40 overflow-hidden">
+                <CloudDivider className="absolute bottom-0 left-1/2 -translate-x-1/2 block h-full w-auto min-w-[120%]" />
+            </div>
+        </section>
     )
 }
 
