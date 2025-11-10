@@ -1,7 +1,9 @@
+import CloudDivider from "../layout/CloudDivider"
+
 const QuienSoy = () => {
 
     return (
-        <section data-component="QuienSoy" className="w-full flex justify-center bg-white py-20 z-10">
+        <section data-component="QuienSoy" className="w-full flex justify-center bg-white pt-20 pb-60 z-10 relative">
             <div className="grid grid-cols-12 w-full max-w-[1580px] px-5 gap-20">
                <div className="mb-10 col-span-6 space-y-9">
                     <p className="bg-yellow text-navy text-lg px-6 py-2 rounded-full max-w-max">Conoce a tu asesora</p>
@@ -22,6 +24,9 @@ const QuienSoy = () => {
                         <p className="font-semibold">Porque no se trata solo de dormir mejor, sino de sentiros acompañados en el proceso, con la tranquilidad de no estar solos.</p>
                     </div>
                 </div>
+            </div>
+            <div className="pointer-events-none absolute inset-x-0 bottom-0 h-24 md:h-32 lg:h-40 overflow-hidden">
+                <CloudDivider className="absolute bottom-0 left-1/2 -translate-x-1/2 block h-full w-auto min-w-[120%] text-yellow" />
             </div>
         </section>
     )
