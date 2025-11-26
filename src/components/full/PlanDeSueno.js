@@ -1,5 +1,6 @@
 import Image from "next/image"
 import CloudDivider from "../layout/CloudDivider"
+import Slider from "../partial/Slider"
 
 const Asesorias = () => {
 
@@ -25,6 +26,7 @@ const Asesorias = () => {
                     />
                 </div>
             </div>
+            <Slider />
             <div>
                 <button className="bg-navy text-white px-12 py-3 rounded-full text-lg font-bold transition-all hover:shadow-xl cursor-pointer">VALORACIÓN GRATUITA</button>
             </div>
