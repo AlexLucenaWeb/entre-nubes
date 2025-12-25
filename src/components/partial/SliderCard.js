@@ -1,11 +1,7 @@
 export default function SliderCard({ step, title, description }) {
   return (
     <article
-      className="
-        relative m-4 flex min-h-[220px] max-w-full gap-6
-        rounded-[32px] bg-white p-6 sm:p-8 shadow-lg
-        shrink-0 grow-0 basis-[85%] sm:basis-[60%] lg:basis-[45%]
-      "
+      className="relative mr-4 flex gap-6 rounded-[32px] bg-white p-6 sm:p-8 shadow-lg"
     >
       {/* círculo con el número */}
       <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full bg-slate-900 text-lg font-semibold text-white">

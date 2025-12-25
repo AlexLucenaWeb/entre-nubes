@@ -12,7 +12,7 @@ export default function Home() {
       <QuienSoy />
       <PlanDeSueno />
       <Resenas />
-      <Valoracion />
+      {/* <Valoracion /> */}
     </main>
   );
 }

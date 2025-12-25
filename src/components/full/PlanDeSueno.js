@@ -5,7 +5,7 @@ import Slider from "../partial/Slider"
 const Asesorias = () => {
 
     return (
-        <section data-component="PlanDeSueno" className="w-full bg-yellow py-20 z-10">
+        <section data-component="PlanDeSueno" className="w-full bg-yellow pt-20 pb-40 z-10 relative">
             <div className="grid grid-cols-12 w-full max-w-[1580px] px-5 gap-20 items-center">
                <div className="mb-10 col-span-6 space-y-9">
                     <p className="bg-white text-navy text-lg px-6 py-2 rounded-full max-w-max">Conoce a tu asesora</p>
@@ -27,8 +27,11 @@ const Asesorias = () => {
                 </div>
             </div>
             <Slider />
-            <div>
+            <div className="px-5">
                 <button className="bg-navy text-white px-12 py-3 rounded-full text-lg font-bold transition-all hover:shadow-xl cursor-pointer">VALORACIÓN GRATUITA</button>
+            </div>
+            <div className="pointer-events-none absolute inset-x-0 bottom-0 h-24 md:h-32 lg:h-40 overflow-hidden">
+                <CloudDivider className="absolute bottom-0 left-1/2 -translate-x-1/2 block h-full w-auto min-w-[120%] text-green-bg" />
             </div>
         </section>
     )

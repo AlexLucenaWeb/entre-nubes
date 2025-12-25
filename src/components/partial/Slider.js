@@ -40,7 +40,7 @@ export default function Slider() {
   const [index, setIndex] = useState(0);
   const trackRef = useRef(null);
 
-  const maxIndex = Math.max(0, SLIDES.length - 3);
+  const maxIndex = Math.max(0, SLIDES.length);
   const canGoNext = index < maxIndex;
 
   const scrollToIndex = (i) => {
@@ -67,20 +67,21 @@ export default function Slider() {
   };
 
   return (
-    <section className="w-full bg-yellow py-10 sm:py-12">
+    <section className="w-full bg-yellow pb-10 -mt-20 sm:pb-12">
       <div className="relative mx-auto">
-
         <div
           ref={trackRef}
-          className="flex gap-6 overflow-x-hidden scroll-smooth pb-6 "
+          className="flex overflow-x-hidden scroll-smooth pb-6 "
         >
           {SLIDES.map((slide) => (
-            <SliderCard
-              key={slide.step}
-              step={slide.step}
-              title={slide.title}
-              description={slide.description}
-            />
+            <div key={slide.step} className="flex items-center m-4 relative shrink-0 grow-0 basis-[85%] sm:basis-[60%] lg:basis-[45%] min-h-[220px] max-w-full">
+              <SliderCard
+                step={slide.step}
+                title={slide.title}
+                description={slide.description}
+              />
+              <NextButton canGoNext={canGoNext} onClick={handleNext}/>
+            </div>
           ))}
         </div>
       </div>
@@ -113,7 +114,7 @@ function NextButton({ canGoNext, onClick }) {
       onClick={onClick}
       disabled={!canGoNext}
       aria-label="Ir al siguiente paso"
-      className={`absolute left-1/2 top-1/2 z-10 flex h-12 w-12 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-slate-900 text-xl font-semibold text-white shadow-xl transition ${
+      className={`z-10 flex-none flex h-8 w-8 items-center justify-center rounded-full bg-slate-900 text-xl font-semibold text-white shadow-xl transition ${
         canGoNext
           ? 'cursor-pointer hover:scale-105 hover:shadow-2xl active:scale-95'
           : 'cursor-default opacity-40 shadow-none'
