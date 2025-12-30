@@ -27,7 +27,7 @@ const Resenas = () => {
     ]
 
     return (
-        <section data-component="Resenas" className="w-full bg-green-bg py-20 z-10">
+        <section data-component="Resenas" className="w-full bg-green-bg py-26 z-10">
             <div className="grid grid-cols-12 w-full max-w-[1580px] px-5">
                <div className="mb-10 col-span-8 space-y-9">
                     <p className="bg-yellow text-navy text-lg px-6 py-2 rounded-full max-w-max">Review de las familias</p>
