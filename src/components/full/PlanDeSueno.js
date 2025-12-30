@@ -5,7 +5,7 @@ import Slider from "../partial/Slider"
 const Asesorias = () => {
 
     return (
-        <section data-component="PlanDeSueno" className="w-full bg-yellow pt-20 pb-40 z-10 relative">
+        <section data-component="PlanDeSueno" className="w-full bg-yellow pt-20 pb-46 z-10 relative">
             <div className="grid grid-cols-12 w-full max-w-[1580px] px-5 gap-20 items-center">
                <div className="mb-10 col-span-6 space-y-9">
                     <p className="bg-white text-navy text-lg px-6 py-2 rounded-full max-w-max">Conoce a tu asesora</p>
