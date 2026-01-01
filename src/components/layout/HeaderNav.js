@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Logo from "../icons/logo";
 
 const HeaderNav = () => {
 
@@ -14,17 +15,10 @@ const HeaderNav = () => {
         <div data-component="Header" className="w-full flex justify-center bg-green-bg text-navy py-5">
             <div className="w-full lg:max-w-[1800px] px-5 flex justify-between items-center">
                 <div className="flex gap-4 items-center">
-                    <Image
-                        src="/images/entrenubes.png"
-                        alt="Entrenubes"
-                        width={235}
-                        height={38}
-                        className="rounded-2xl"
-                        priority 
-                    />
+                    <Logo classes="text-navy"/>
                 </div>
 
-                <nav className="flex gap-8">
+                <nav className="hidden sm:flex gap-8">
                     {headerLinks.map((link, index)=>(
                         <button key={index} className={`cursor-pointer ${link.label === "CONTACTA" && "text-sm bg-navy text-white rounded-full hover:shadow-xl font-medium px-4 py-2 transition-all duration-300"}`}>
                             {link.label} 

@@ -27,16 +27,16 @@ const Resenas = () => {
     ]
 
     return (
-        <section data-component="Resenas" className="w-full bg-green-bg py-26 z-10">
-            <div className="grid grid-cols-12 w-full max-w-[1580px] px-5">
+        <section data-component="Resenas" className="w-full bg-green-bg pt-10 sm:pt-26 pb-20 sm:pb-26 z-10">
+            <div className="sm:grid grid-cols-12 w-full max-w-[1580px] px-5">
                <div className="mb-10 col-span-8 space-y-9">
                     <p className="bg-yellow text-navy text-lg px-6 py-2 rounded-full max-w-max">Review de las familias</p>
                     <h3 className="text-4xl sm:text-5xl md:text-6xl text-green font-semibold">Porque descansar es una necesidad, mi propósito es acompañarte</h3>
                     <p className="text-xl text-gray">Entre nubes nace como un espacio de acompañamiento a familias que desean mejorar el descanso en casa. Mi enfoque es cercano y personalizado, poniendo siempre en el centro las necesidades y el bienestar de cada bebé, con respeto y cuidado en cada paso del proceso.</p>
                 </div>
-                <div className="col-span-12 grid grid-cols-4 gap-6 mb-10">
+                <div className="col-span-12 sm:grid grid-cols-4 gap-6 mb-10">
                     {resenas.map((resena, index)=> (
-                        <div key={index} className={`p-5 rounded-lg ${index === 0 || index === 2 ? "bg-navy-light" : "bg-yellow text-gray"}`}>
+                        <div key={index} className={`p-5 rounded-lg mb-5 sm:mb-0 ${index === 0 || index === 2 ? "bg-navy-light" : "bg-yellow text-gray"}`}>
                             <div className="flex gap-2 mb-3">
                                 <StarIcon/>
                                 <StarIcon/>
@@ -52,7 +52,7 @@ const Resenas = () => {
                 </div>
                 <div className="col-span-8">
                     <p className="text-xl text-navy pb-6">Si quieres transformar el descanso de tu bebé y recuperar la armonía familiar, estaré encantada de acompañarte.</p>
-                    <button className="bg-navy text-white px-12 py-3 rounded-full text-lg font-bold transition-all hover:shadow-xl cursor-pointer">VALORACIÓN GRATUITA</button>
+                    <button className="w-full sm:w-auto bg-navy text-white px-12 py-3 rounded-full text-lg font-bold transition-all hover:shadow-xl cursor-pointer">VALORACIÓN GRATUITA</button>
                 </div>
 
             </div>

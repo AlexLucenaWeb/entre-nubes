@@ -12,7 +12,6 @@ export default function Home() {
       <QuienSoy />
       <PlanDeSueno />
       <Resenas />
-      {/* <Valoracion /> */}
     </main>
   );
 }

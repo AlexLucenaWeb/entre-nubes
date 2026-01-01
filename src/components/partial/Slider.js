@@ -67,7 +67,7 @@ export default function Slider() {
   };
 
   return (
-    <section className="w-full bg-yellow pb-10 -mt-20 sm:pb-12">
+    <section className="w-full bg-yellow pb-10 sm:-mt-20 sm:pb-12">
       <div className="relative mx-auto">
         <div
           ref={trackRef}
@@ -114,7 +114,7 @@ function NextButton({ canGoNext, onClick }) {
       onClick={onClick}
       disabled={!canGoNext}
       aria-label="Ir al siguiente paso"
-      className={`z-10 flex-none flex h-8 w-8 items-center justify-center rounded-full bg-slate-900 text-xl font-semibold text-white shadow-xl transition ${
+      className={`z-10 flex-none hidden sm:flex h-8 w-8 items-center justify-center rounded-full bg-slate-900 text-xl font-semibold text-white shadow-xl transition ${
         canGoNext
           ? 'cursor-pointer hover:scale-105 hover:shadow-2xl active:scale-95'
           : 'cursor-default opacity-40 shadow-none'

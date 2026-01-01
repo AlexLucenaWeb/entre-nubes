@@ -4,14 +4,14 @@ import Image from "next/image"
 const Hero = () => {
 
     return (
-        <section data-component="Hero" className="w-full flex justify-center bg-green-bg pt-20 pb-40 relative">
-            <div className="grid grid-cols-12 max-w-[1580px] py-20 px-10 gap-16">
+        <section data-component="Hero" className="w-full flex justify-center bg-green-bg sm:pt-20 pb-20 sm:pb-40 relative">
+            <div className="sm:grid grid-cols-12 max-w-[1580px] py-10 sm:py-20 px-3 sm:px-10 gap-16">
                 <div className="mb-10 col-span-7 space-y-9">
                     <p className="bg-yellow text-navy text-lg px-6 py-2 rounded-full max-w-max">Sueño tranquilo, crianza consciente. Acompañamos cada paso.</p>
                     <h1 className="text-4xl sm:text-5xl md:text-6xl text-green font-bold">Porque descansar es una necesidad, mi propósito es acompañarte</h1>
-                    <p className="text-xl text-gray">Entre nubes nace como un espacio de acompañamiento a familias que desean mejorar el descanso en casa. Mi enfoque es cercano y personalizado, poniendo siempre en el centro las necesidades y el bienestar de cada bebé, con respeto y cuidado en cada paso del proceso.</p>
-                    <p className="text-xl text-navy">Si quieres transformar el descanso de tu bebé y recuperar la armonía familiar, estaré encantada de acompañarte.</p>
-                    <button className="bg-navy text-white px-12 py-3 rounded-full text-lg font-bold transition-all hover:shadow-xl cursor-pointer">VALORACIÓN GRATUITA</button>
+                    <p className="text-lg sm:text-xl text-gray">Entre nubes nace como un espacio de acompañamiento a familias que desean mejorar el descanso en casa. Mi enfoque es cercano y personalizado, poniendo siempre en el centro las necesidades y el bienestar de cada bebé, con respeto y cuidado en cada paso del proceso.</p>
+                    <p className="text-lg sm:text-xl text-navy">Si quieres transformar el descanso de tu bebé y recuperar la armonía familiar, estaré encantada de acompañarte.</p>
+                    <button className="w-full sm:w-auto bg-navy text-white px-12 py-3 rounded-full text-lg font-bold transition-all hover:shadow-xl cursor-pointer">VALORACIÓN GRATUITA</button>
                 </div>
                 <div className="col-span-5">
                     <Image
