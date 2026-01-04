@@ -1,8 +1,29 @@
+'use client'
+
+import { useState, useEffect } from "react";
 import Logo from "../icons/logo";
 import BurgerIcon from "../icons/BurguerMenu";
 import CloudDividerMenu from "./CloudDividerMenu";
 
 const StickyHeader = () => {
+
+    const [showStickyNav, setShowStickyNav] = useState(false);
+    const handleScroll=() => {
+        const offset=window.scrollY;
+        if(offset > 100 ){
+            setShowStickyNav(true);
+            console.log("SHOW", showStickyNav)
+        }
+        else{
+            setShowStickyNav(false);
+            console.log("HIDE", showStickyNav)
+        }
+    };
+
+    useEffect(() => {
+        window.addEventListener('scroll', handleScroll)
+        return () => window.removeEventListener('scroll', handleScroll)
+    });
 
     const headerLinks = [
         {label: "Sueño respetuoso", destino: "sueno"},
@@ -13,7 +34,8 @@ const StickyHeader = () => {
     ]
 
     return (
-        <div data-component="Header" className="w-full flex justify-center items-center bg-white sticky sm:static top-0 z-50 sm:bg-green-bg text-navy py-5">
+        <div data-component="StickyHeader" className={`w-screen bg-white fixed z-50 shadow-md transition-transform duration-300 transform -top-20 py-5 ${showStickyNav === true ? "translate-y-20" : ""}`}>
+            
             <div className="w-full lg:max-w-[1800px] px-5 flex justify-between items-center relative">
                 <div className="flex gap-4 items-center">
                     <Logo classes="text-navy" width="180"/>
