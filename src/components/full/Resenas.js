@@ -30,7 +30,7 @@ const Resenas = () => {
         <section data-component="Resenas" className="w-full bg-green-bg pt-10 sm:pt-26 pb-20 sm:pb-26 z-10">
             <div className="sm:grid grid-cols-12 w-full max-w-[1580px] px-5">
                <div className="mb-10 col-span-8 space-y-9">
-                    <p className="bg-yellow text-navy text-lg px-6 py-2 rounded-full max-w-max">Review de las familias</p>
+                    <p className="bg-yellow text-navy sm:text-lg px-6 py-2 rounded-full max-w-max">Review de las familias</p>
                     <h3 className="text-4xl sm:text-5xl md:text-6xl text-green font-semibold">Porque descansar es una necesidad, mi propósito es acompañarte</h3>
                     <p className="text-xl text-gray">Entre nubes nace como un espacio de acompañamiento a familias que desean mejorar el descanso en casa. Mi enfoque es cercano y personalizado, poniendo siempre en el centro las necesidades y el bienestar de cada bebé, con respeto y cuidado en cada paso del proceso.</p>
                 </div>

@@ -8,7 +8,7 @@ const Asesorias = () => {
         <section data-component="PlanDeSueno" className="w-full bg-yellow pt-10 sm:pt-20 pb-20 sm:pb-46 z-10 relative">
             <div className="sm:grid grid-cols-12 w-full max-w-[1580px] px-5 gap-20 items-center">
                <div className="sm:mb-10 col-span-6 space-y-4 sm:space-y-9">
-                    <p className="bg-white text-navy text-lg px-6 py-2 rounded-full max-w-max">Conoce a tu asesora</p>
+                    <p className="bg-white text-navy sm:text-lg px-6 py-2 rounded-full max-w-max">Conoce a tu asesora</p>
                     <h2 className="text-4xl sm:text-5xl md:text-6xl text-navy font-semibold">Plan de sueño</h2>
                     <p className="text-xl text-navy">¿Cómo funciona el plan de sueño infantil respetuoso?</p>
                     <p className="sm:text-xl text-gray">

@@ -9,8 +9,8 @@ const Footer = () => {
                 <Logo classes="text-green-bg"/>
                 <p>Duerme con tranquilidad, sueña con tranquilidad</p>
                 <div className="flex gap-6 flex-col sm:flex-row">
-                    <button className="bg-white text-navy px-12 py-3 rounded-full text-lg font-bold transition-all hover:shadow-xl cursor-pointer">VALORACIÓN GRATUITA</button>
-                    <button className="bg-navy-light text-white px-12 py-3 rounded-full text-lg font-bold transition-all hover:shadow-xl cursor-pointer">CONTACTA VIA MAIL</button>
+                    <button className="bg-white text-navy px-10 sm:px-12 py-3 rounded-full sm:text-lg font-bold transition-all hover:shadow-xl cursor-pointer">VALORACIÓN GRATUITA</button>
+                    <button className="bg-navy-light text-white px-10 sm:px-12 py-3 rounded-full sm:text-lg font-bold transition-all hover:shadow-xl cursor-pointer">CONTACTA VIA MAIL</button>
                 </div>
                 <div className="flex flex-col gap-6 py-6 items-center">
                     <a href="#">Sueño respetuoso</a>

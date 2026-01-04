@@ -6,11 +6,11 @@ const QuienSoy = () => {
         <section data-component="QuienSoy" className="w-full flex justify-center bg-white pt-10 sm:pt-20 pb-30 sm:pb-60 z-10 relative">
             <div className="sm:grid grid-cols-12 w-full max-w-[1580px] px-5 gap-20">
                <div className="mb-10 col-span-6 space-y-6 sm:space-y-9">
-                    <p className="bg-yellow text-navy text-lg px-6 py-2 rounded-full max-w-max">Conoce a tu asesora</p>
+                    <p className="bg-yellow text-navy sm:text-lg px-6 py-2 rounded-full max-w-max">Conoce a tu asesora</p>
                     <h2 className="text-4xl sm:text-5xl md:text-6xl text-green font-semibold">Quien es Laura</h2>
                     <p className="text-xl text-navy">Mi nombre es Laura y soy enfermera, mamá y asesora de sueño infantil respetuoso.</p>
                     <div className="w-52 h-52 bg-navy rounded-full"></div>
-                    <p className="sm:text-xl text-gray">Cuidar y proteger la salud de las personas no solo es mi profesión, también es mi vocación. En mis asesorías de sueño, acompaño a las familias a mejorar su descanso de una manera cercana y personalizada. Sé que cada bebé tiene su propio ritmo, por eso me adapto en todo momento a las necesidades de cada familia, ofreciendo un acompañamiento respetuoso y lleno de cuidado en este proceso de cambio.</p>
+                    <p className="text-xl text-gray">Cuidar y proteger la salud de las personas no solo es mi profesión, también es mi vocación. En mis asesorías de sueño, acompaño a las familias a mejorar su descanso de una manera cercana y personalizada. Sé que cada bebé tiene su propio ritmo, por eso me adapto en todo momento a las necesidades de cada familia, ofreciendo un acompañamiento respetuoso y lleno de cuidado en este proceso de cambio.</p>
                     <button className="w-full sm:w-auto bg-navy text-white px-12 py-3 rounded-full text-lg font-bold transition-all hover:shadow-xl cursor-pointer">VALORACIÓN GRATUITA</button>
                 </div>
                 <div className="col-span-6 flex items-center">

@@ -12,7 +12,7 @@ const HeaderNav = () => {
     ]
 
     return (
-        <div data-component="Header" className="w-full flex justify-center bg-white sticky sm:static top-0 z-50 sm:bg-green-bg text-navy py-5">
+        <div data-component="Header" className="w-full flex justify-center items-center bg-white sticky sm:static top-0 z-50 sm:bg-green-bg text-navy py-5">
             <div className="w-full lg:max-w-[1800px] px-5 flex justify-between items-center">
                 <div className="flex gap-4 items-center">
                     <Logo classes="text-navy" width="180"/>

@@ -1,11 +1,10 @@
-
-const BurgerIcon = (props) => {
-    return (
-        <svg className="block h-6 w-6 text-navy fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-            <title>Menu</title>
-            <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"></path>
-        </svg>
-    );
-};
-
-export default BurgerIcon
+export default function BurguerMenu({}) {
+  return (
+    <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M5 20H35" stroke="#202F4B" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"/>
+      <path d="M5 10H35" stroke="#202F4B" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"/>
+      <path d="M5 30H35" stroke="#202F4B" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"/>
+    </svg>
+  );
+}
+  
