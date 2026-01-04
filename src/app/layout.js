@@ -1,6 +1,7 @@
 import HeaderNav from "@/components/layout/HeaderNav";
 import Footer from "@/components/layout/Footer";
 import "./globals.css";
+import StickyHeader from "@/components/layout/StickyHeader";
 
 export const metadata = {
   title: "Create Next App",
@@ -12,6 +13,7 @@ export default function RootLayout({ children }) {
     <html lang="es">
       <body>
         <HeaderNav />
+        <StickyHeader />
         {children}
         <Footer />
       </body>

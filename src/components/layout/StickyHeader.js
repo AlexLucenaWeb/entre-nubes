@@ -2,7 +2,7 @@ import Logo from "../icons/logo";
 import BurgerIcon from "../icons/BurguerMenu";
 import CloudDividerMenu from "./CloudDividerMenu";
 
-const HeaderNav = () => {
+const StickyHeader = () => {
 
     const headerLinks = [
         {label: "Sueño respetuoso", destino: "sueno"},
@@ -13,7 +13,7 @@ const HeaderNav = () => {
     ]
 
     return (
-        <div data-component="Header" className="w-full flex justify-center items-center bg-green-bg sm:bg-green-bg text-navy py-5">
+        <div data-component="Header" className="w-full flex justify-center items-center bg-white sticky sm:static top-0 z-50 sm:bg-green-bg text-navy py-5">
             <div className="w-full lg:max-w-[1800px] px-5 flex justify-between items-center relative">
                 <div className="flex gap-4 items-center">
                     <Logo classes="text-navy" width="180"/>
@@ -30,9 +30,10 @@ const HeaderNav = () => {
                 <button className="sm:hidden">
                     <BurgerIcon/>
                 </button>
+                <CloudDividerMenu className="inset-x-0 absolute -bottom-20 text-white"/> 
             </div>
         </div>
     )
 }
 
-export default HeaderNav
+export default StickyHeader
