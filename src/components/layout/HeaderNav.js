@@ -1,5 +1,5 @@
-import Image from "next/image";
 import Logo from "../icons/logo";
+import BurgerIcon from "../icons/BurguerMenu";
 
 const HeaderNav = () => {
 
@@ -12,10 +12,10 @@ const HeaderNav = () => {
     ]
 
     return (
-        <div data-component="Header" className="w-full flex justify-center bg-green-bg text-navy py-5">
+        <div data-component="Header" className="w-full flex justify-center bg-white sticky sm:static top-0 z-50 sm:bg-green-bg text-navy py-5">
             <div className="w-full lg:max-w-[1800px] px-5 flex justify-between items-center">
                 <div className="flex gap-4 items-center">
-                    <Logo classes="text-navy"/>
+                    <Logo classes="text-navy" width="180"/>
                 </div>
 
                 <nav className="hidden sm:flex gap-8">
@@ -25,6 +25,10 @@ const HeaderNav = () => {
                         </button>
                     ))}
                 </nav>
+
+                <button className="sm:hidden">
+                    <BurgerIcon/>
+                </button>
             </div>
         </div>
     )
