@@ -1,4 +1,5 @@
 import CloudDivider from "../layout/CloudDivider"
+import ContactButton from "../partial/ContactButton"
 
 const QuienSoy = () => {
 
@@ -11,7 +12,7 @@ const QuienSoy = () => {
                     <p className="text-xl text-navy">Mi nombre es Laura y soy enfermera, mamá y asesora de sueño infantil respetuoso.</p>
                     <div className="w-52 h-52 bg-navy rounded-full"></div>
                     <p className="text-xl text-gray">Cuidar y proteger la salud de las personas no solo es mi profesión, también es mi vocación. En mis asesorías de sueño, acompaño a las familias a mejorar su descanso de una manera cercana y personalizada. Sé que cada bebé tiene su propio ritmo, por eso me adapto en todo momento a las necesidades de cada familia, ofreciendo un acompañamiento respetuoso y lleno de cuidado en este proceso de cambio.</p>
-                    <button className="w-full sm:w-auto bg-navy text-white px-12 py-3 rounded-full text-lg font-bold transition-all hover:shadow-xl cursor-pointer">VALORACIÓN GRATUITA</button>
+                    <ContactButton label="VALORACIÓN GRATUITA" size="px-12 py-3 text-lg" />
                 </div>
                 <div className="col-span-6 flex items-center">
                     <div className="rounded-4xl border-2 border-yellow shadow-2xl p-6 sm:p-12 space-y-6 sm:space-y-10 text-navy">

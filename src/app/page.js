@@ -8,6 +8,7 @@ import CloudDivider from "@/components/layout/CloudDivider";
 export default function Home() {
   return (
     <main className="">
+      <div id="modal-root" />
       <Hero />
       <QuienSoy />
       <PlanDeSueno />

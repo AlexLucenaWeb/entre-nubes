@@ -1,5 +1,7 @@
 import StarIcon from "../icons/star"
-
+import ContactForm from "../layout/ContactForm"
+import ContactButton
+ from "../partial/ContactButton"
 const Resenas = () => {
 
     const resenas = [
@@ -52,9 +54,11 @@ const Resenas = () => {
                 </div>
                 <div className="col-span-8">
                     <p className="text-xl text-navy pb-6">Si quieres transformar el descanso de tu bebé y recuperar la armonía familiar, estaré encantada de acompañarte.</p>
-                    <button className="w-full sm:w-auto bg-navy text-white px-12 py-3 rounded-full text-lg font-bold transition-all hover:shadow-xl cursor-pointer">VALORACIÓN GRATUITA</button>
+                    <ContactButton label="VALORACIÓN GRATUITA" size="px-12 py-3 text-lg" />
                 </div>
-
+                <div className="py-20">
+                    <ContactForm />
+                </div>
             </div>
         </section>
     )

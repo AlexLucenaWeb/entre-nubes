@@ -1,3 +1,4 @@
+import ContactButton from "../partial/ContactButton"
 import CloudDivider from "./CloudDivider"
 import Image from "next/image"
 
@@ -11,7 +12,7 @@ const Hero = () => {
                     <h1 className="text-4xl sm:text-5xl md:text-6xl text-green font-bold">Porque descansar es una necesidad, mi propósito es acompañarte</h1>
                     <p className="text-lg sm:text-xl text-gray">Entre nubes nace como un espacio de acompañamiento a familias que desean mejorar el descanso en casa. Mi enfoque es cercano y personalizado, poniendo siempre en el centro las necesidades y el bienestar de cada bebé, con respeto y cuidado en cada paso del proceso.</p>
                     <p className="text-lg sm:text-xl text-navy">Si quieres transformar el descanso de tu bebé y recuperar la armonía familiar, estaré encantada de acompañarte.</p>
-                    <button className="w-full sm:w-auto bg-navy text-white px-12 py-3 rounded-full text-lg font-bold transition-all hover:shadow-xl cursor-pointer">VALORACIÓN GRATUITA</button>
+                    <ContactButton label="VALORACIÓN GRATUITA" size="px-12 py-3 text-lg" />
                 </div>
                 <div className="col-span-5">
                     <Image

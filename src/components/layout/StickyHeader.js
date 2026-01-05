@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import Logo from "../icons/logo";
 import BurgerIcon from "../icons/BurguerMenu";
-import CloudDividerMenu from "./CloudDividerMenu";
+import ContactButton from "../partial/ContactButton";
 
 const StickyHeader = () => {
 
@@ -30,11 +30,10 @@ const StickyHeader = () => {
         {label: "Quién es Laura", destino: "laura"},
         {label: "Plan", destino: "plan"},
         {label: "Relatos familiares", destino: "relatos"},
-        {label: "CONTACTA", destino: "contacta"},
     ]
 
     return (
-        <div data-component="StickyHeader" className={`w-screen bg-white fixed z-50 shadow-md transition-transform duration-300 transform -top-20 py-5 ${showStickyNav === true ? "translate-y-20" : ""}`}>
+        <div data-component="StickyHeader" className={`w-screen flex justify-center bg-white fixed z-50 shadow-md transition-transform duration-300 transform -top-24 py-3 ${showStickyNav === true ? "translate-y-24" : ""}`}>
             
             <div className="w-full lg:max-w-[1800px] px-5 flex justify-between items-center relative">
                 <div className="flex gap-4 items-center">
@@ -43,16 +42,16 @@ const StickyHeader = () => {
 
                 <nav className="hidden sm:flex gap-8">
                     {headerLinks.map((link, index)=>(
-                        <button key={index} className={`cursor-pointer ${link.label === "CONTACTA" && "text-sm bg-navy text-white rounded-full hover:shadow-xl font-medium px-4 py-2 transition-all duration-300"}`}>
+                        <button key={index} className={`cursor-pointer text-navy`}>
                             {link.label} 
                         </button>
                     ))}
+                    <ContactButton label="Contacta" size="px-4 py-2"/>
                 </nav>
 
                 <button className="sm:hidden">
                     <BurgerIcon/>
                 </button>
-                <CloudDividerMenu className="inset-x-0 absolute -bottom-20 text-white"/> 
             </div>
         </div>
     )
