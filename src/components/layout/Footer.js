@@ -19,13 +19,13 @@ const Footer = () => {
                     </a>
                 </div>
                 <div className="flex flex-col sm:flex-row gap-6 py-6 items-center">
-                    <button onClick={() => refLinkHandler("hero", 10)} className="cursor-pointer hover:text-yellow transition-colors duration-300">Sueño respetuoso</button>
+                    <button onClick={() => refLinkHandler("hero")} className="cursor-pointer hover:text-yellow transition-colors duration-300">Sueño respetuoso</button>
                     <span className="hidden sm:block w-px h-5 bg-white"></span>
-                    <button onClick={() => refLinkHandler("quienSoy", 10)} className="cursor-pointer hover:text-yellow transition-colors duration-300">Quién es Laura</button>
+                    <button onClick={() => refLinkHandler("quienSoy")} className="cursor-pointer hover:text-yellow transition-colors duration-300">Quién es Laura</button>
                     <span className="hidden sm:block w-px h-5 bg-white"></span>
-                    <button onClick={() => refLinkHandler("planSueno", 10)} className="cursor-pointer hover:text-yellow transition-colors duration-300">Nuestro Plan</button>
+                    <button onClick={() => refLinkHandler("planSueno")} className="cursor-pointer hover:text-yellow transition-colors duration-300">Nuestro Plan</button>
                     <span className="hidden sm:block w-px h-5 bg-white"></span>
-                    <button onClick={() => refLinkHandler("resenas", 10)} className="cursor-pointer hover:text-yellow transition-colors duration-300">Relatos familiares</button>
+                    <button onClick={() => refLinkHandler("resenas" )} className="cursor-pointer hover:text-yellow transition-colors duration-300">Relatos familiares</button>
                 </div>
                 <div className="flex gap-2">
                     <p>Síguenos en</p>

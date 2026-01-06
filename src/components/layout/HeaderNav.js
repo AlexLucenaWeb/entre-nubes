@@ -24,7 +24,7 @@ const HeaderNav = () => {
 
                 <nav className="hidden sm:flex gap-6">
                     {headerLinks.map((link, index)=>(
-                        <button key={index} onClick={() => refLinkHandler(link.destino, 10)} className="cursor-pointer text-navy transition-colors duration-300 rounded-full px-3 hover:bg-navy-light hover:text-white">
+                        <button key={index} onClick={() => refLinkHandler(link.destino)} className="cursor-pointer text-navy transition-colors duration-300 rounded-full px-3 hover:bg-navy-light hover:text-white">
                             {link.label}
                         </button>
                     ))}
