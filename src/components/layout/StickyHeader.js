@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import Logo from "../icons/logo";
 import BurgerIcon from "../icons/BurguerMenu";
 import ContactButton from "../partial/ContactButton";
+import { refLinkHandler } from "@/lib/utils";
 
 const StickyHeader = () => {
 
