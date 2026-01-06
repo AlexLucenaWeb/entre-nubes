@@ -4,7 +4,7 @@ import ContactButton from "../partial/ContactButton"
 const QuienSoy = () => {
 
     return (
-        <section data-component="QuienSoy" className="w-full flex justify-center bg-white pt-10 sm:pt-20 pb-30 sm:pb-60 z-10 relative">
+        <section data-component="QuienSoy" id="quienSoy" className="w-full flex justify-center bg-white pt-10 sm:pt-20 pb-30 sm:pb-60 z-10 relative">
             <div className="sm:grid grid-cols-12 w-full max-w-[1580px] px-5 gap-20">
                <div className="mb-10 col-span-6 space-y-6 sm:space-y-9">
                     <p className="bg-yellow text-navy sm:text-lg px-6 py-2 rounded-full max-w-max">Conoce a tu asesora</p>

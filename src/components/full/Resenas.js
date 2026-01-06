@@ -1,7 +1,5 @@
 import StarIcon from "../icons/star"
-import ContactForm from "../layout/ContactForm"
-import ContactButton
- from "../partial/ContactButton"
+import ContactButton from "../partial/ContactButton"
 const Resenas = () => {
 
     const resenas = [
@@ -29,7 +27,7 @@ const Resenas = () => {
     ]
 
     return (
-        <section data-component="Resenas" className="w-full bg-green-bg pt-10 sm:pt-26 pb-20 sm:pb-26 z-10">
+        <section data-component="Resenas" id="resenas" className="w-full bg-green-bg pt-10 sm:pt-26 pb-20 sm:pb-26 z-10">
             <div className="sm:grid grid-cols-12 w-full max-w-[1580px] px-5">
                <div className="mb-10 col-span-8 space-y-9">
                     <p className="bg-yellow text-navy sm:text-lg px-6 py-2 rounded-full max-w-max">Review de las familias</p>
@@ -55,9 +53,6 @@ const Resenas = () => {
                 <div className="col-span-8">
                     <p className="text-xl text-navy pb-6">Si quieres transformar el descanso de tu bebé y recuperar la armonía familiar, estaré encantada de acompañarte.</p>
                     <ContactButton label="VALORACIÓN GRATUITA" size="px-12 py-3 text-lg" />
-                </div>
-                <div className="py-20">
-                    <ContactForm />
                 </div>
             </div>
         </section>

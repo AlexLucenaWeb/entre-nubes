@@ -3,11 +3,12 @@
 import { useEffect, useRef, useState } from "react";
 import { createPortal } from "react-dom";
 import ContactForm from "../layout/ContactForm";
+import CloseX from "../icons/CloseX";
 
 const ANIM_MS = 220;
 
 const ContactButton = (props) => {
-  const { label, size = "", className = "" } = props;
+  const { label, size = "", className = "", light } = props;
 
   const [mounted, setMounted] = useState(false);
   const [renderModal, setRenderModal] = useState(false); // existe en DOM
@@ -46,7 +47,6 @@ const ContactButton = (props) => {
       document.body.style.overflow = prevOverflow;
       window.removeEventListener("keydown", onKeyDown);
     };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [renderModal]);
 
   function openModal() {
@@ -102,14 +102,16 @@ const ContactButton = (props) => {
           {/* Header */}
           <div className="sticky top-0 z-10 flex items-center justify-between border-b border-black/10 bg-white px-5 py-4">
             <p className="font-bold text-navy">Contacto</p>
-            <button
-              type="button"
-              onClick={closeModal}
-              className="rounded-full px-3 py-2 text-navy hover:bg-black/5"
-              aria-label="Cerrar"
-            >
-              ✕
-            </button>
+            <div>
+                <button
+                type="button"
+                onClick={closeModal}
+                className="rounded-full w-8 h-8 text-navy cursor-pointer"
+                aria-label="Cerrar"
+                >
+                <CloseX />
+                </button>
+            </div>
           </div>
 
           {/* Content scrollable */}
@@ -126,7 +128,7 @@ const ContactButton = (props) => {
       <button
         type="button"
         onClick={openModal}
-        className={`w-full sm:w-auto bg-navy text-white rounded-full font-bold transition-all hover:shadow-lg cursor-pointer ${size} ${className}`}
+        className={`w-full sm:w-auto  rounded-full font-bold transition-all hover:shadow-lg cursor-pointer ${size} ${className} ${light ? "bg-white text-navy" : "bg-navy hover:bg-navy-light text-white"}`}
       >
         {label}
       </button>
