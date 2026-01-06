@@ -25,11 +25,12 @@ const StickyHeader = () => {
         return () => window.removeEventListener('scroll', handleScroll)
     });
 
-    const headerLinks = [
-        {label: "Sueño respetuoso", destino: "sueno"},
-        {label: "Quién es Laura", destino: "laura"},
-        {label: "Plan", destino: "plan"},
-        {label: "Relatos familiares", destino: "relatos"},
+     const headerLinks = [
+        {label: "Sueño respetuoso", destino: "hero"},
+        {label: "Quién es Laura", destino: "quienSoy"},
+        {label: "Plan", destino: "planSueno"},
+        {label: "Relatos familiares", destino: "resenas"},
+        
     ]
 
     return (
@@ -41,9 +42,9 @@ const StickyHeader = () => {
                 </div>
 
                 <nav className="hidden sm:flex gap-8">
-                    {headerLinks.map((link, index)=>(
-                        <button key={index} className={`cursor-pointer text-navy`}>
-                            {link.label} 
+                     {headerLinks.map((link, index)=>(
+                        <button key={index} onClick={() => refLinkHandler(link.destino, 10)} className="cursor-pointer text-navy transition-colors duration-300 rounded-full px-3 hover:bg-navy-light hover:text-white">
+                            {link.label}
                         </button>
                     ))}
                     <ContactButton label="Contacta" size="px-4 py-2"/>
