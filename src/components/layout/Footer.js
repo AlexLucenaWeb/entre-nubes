@@ -14,7 +14,7 @@ const Footer = () => {
                 <p>Duerme con tranquilidad, sueña con tranquilidad</p>
                 <div className="flex gap-6 flex-col sm:flex-row">
                     <ContactButton label="VALORACIÓN GRATUITA" size="px-12 py-3 text-lg" light={true}/>
-                    <a href="mailto:lauradelacorteasesora@gmail.com?subject=Consulta%20Sueno%20Respetuoso=Hola%20Laura," target="_blank" className="text-center bg-navy-light text-white px-10 sm:px-12 py-3 rounded-full sm:text-lg font-bold transition-all hover:shadow-xl cursor-pointer">
+                    <a href="mailto:lauradelacorteasesora@gmail.com?subject=Consulta%20Sueno%20Respetuoso&body=Hola%20Laura," target="_blank" className="text-center bg-navy-light text-white px-10 sm:px-12 py-3 rounded-full sm:text-lg font-bold transition-all hover:shadow-xl cursor-pointer">
                         CONTACTA VIA MAIL
                     </a>
                 </div>
