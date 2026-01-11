@@ -13,7 +13,7 @@ const Asesorias = () => {
                     <h2 className="text-4xl sm:text-5xl md:text-6xl text-navy font-semibold">Plan de sueño</h2>
                     <p className="text-xl text-navy">¿Cómo funciona el plan de sueño infantil respetuoso?</p>
                     <p className="sm:text-xl text-gray">
-                        Los planes de sueño están diseñados para mejorar el sueño en unos plazos variables de entre X y X días. Yo te daré una pautas que diseñaremos según vuestro caso particular.
+                        Los planes de sueño están diseñados para mejorar el sueño en unos plazos variables de entre 5 y 6 semanas. Yo os daré una pautas que diseñaremos según vuestro caso particular.
                     </p>
                     <p className="bg-bold text-navy">El plan consta de 5 pasos:</p>
                 </div>
