@@ -2,6 +2,7 @@
 
 import { useRef, useState } from 'react';
 import SliderCard from './SliderCard';
+import CustomSlider from './customSlider';
 
 const SLIDES = [
   {
@@ -67,8 +68,8 @@ export default function Slider() {
   };
 
   return (
-    <section className="w-full bg-yellow pb-10 sm:-mt-20 sm:pb-12">
-      <div className="relative mx-auto">
+    <section className="w-full bg-yellow pb-10 py-12 px-4">
+      {/* <div className="relative mx-auto">
         <div
           ref={trackRef}
           className="flex overflow-x-hidden scroll-smooth pb-6 "
@@ -86,7 +87,6 @@ export default function Slider() {
         </div>
       </div>
 
-      {/* Puntos de navegación */}
       <div className="mt-6 flex justify-center gap-3">
         {Array.from({ length: SLIDES.length }).map((_, i) => {
           const active = i === index;
@@ -102,7 +102,23 @@ export default function Slider() {
             />
           );
         })}
-      </div>
+      </div> */}
+      <CustomSlider>
+        {SLIDES.map((slide, index)=>(
+          <div key={index} className='flex gap-2 items-center'>
+            <SliderCard
+                step={slide.step}
+                title={slide.title}
+                description={slide.description}
+            />
+            <button
+              className={`z-10 flex-none hidden sm:flex h-8 w-8 items-center justify-center rounded-full bg-slate-900 text-xl font-semibold text-white shadow-xl transition cursor-pointer hover:scale-105 hover:shadow-2xl active:scale-95}`}
+            >
+              &gt;
+            </button>
+          </div>
+        ))}
+      </CustomSlider>
     </section>
   );
 }
