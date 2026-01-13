@@ -22,6 +22,8 @@ export default function CustomSlider({
 
   const sliderRef = useRef(null);
 
+  const navigation = [1,2,3,4,5]
+
   useEffect(() => {
     const handleResize = () => {
       if (window.innerWidth < 768) {
@@ -133,30 +135,18 @@ export default function CustomSlider({
           </div>
         ))}
       </div>
-
-      <div className="flex justify-between items-center mt-4 px-4">
-        <div className="flex justify-center space-x-2">
-          {childrenArray.map((_, i) => (
-            <button
-              key={i}
-              onClick={() => setCurrentIndex(i + itemsToShow)}
-              className={`w-5 h-5 rounded-full transition-colors duration-200 ${
-                i + itemsToShow === currentIndex ? "bg-orange" : "bg-stone"
-              }`}
-              aria-label={`Go to card ${i + 1}`}
-            />
+{/* 
+      <div className="flex justify-between items-center mt-4 px-4 max-w-96 mx-auto">
+          <button onClick={prev} disabled={isButtonDisabled} className="border border-navy rounded-full w-8 h-8 flex justify-center items-center">
+            <IconDropdownArrow color="text-navy" direction="left" />
+          </button>
+          {navigation.map((i)=>(
+            <span key={i} className={`border border-navy-light rounded-full w-8 h-8 flex justify-center items-center transition-colors duration-300 ${currentIndex === i ? "bg-navy-light text-white" : "text-navy-light"}`}>{i}</span>
           ))}
-        </div>
-
-        <div className="flex gap-2">
-          <button onClick={prev} disabled={isButtonDisabled} className="px-2 py-1">
-            <IconDropdownArrow color={arrow_color} direction="left" />
+          <button onClick={next} disabled={isButtonDisabled} className="border border-navy rounded-full w-8 h-8 flex justify-center items-center">
+            <IconDropdownArrow color="text-navy" direction="right" />
           </button>
-          <button onClick={next} disabled={isButtonDisabled} className="px-2 py-1">
-            <IconDropdownArrow color={arrow_color} direction="right" />
-          </button>
-        </div>
-      </div>
+      </div> */}
     </div>
   );
 }

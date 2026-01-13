@@ -2,7 +2,8 @@
 
 import { useRef, useState } from 'react';
 import SliderCard from './SliderCard';
-import CustomSlider from './customSlider';
+import CustomSlider from './CustomSlider';
+import IconDropdownArrow from '../icons/IconDropDown';
 
 const SLIDES = [
   {
@@ -68,7 +69,7 @@ export default function Slider() {
   };
 
   return (
-    <section className="w-full bg-yellow pb-10 py-12 px-4">
+    <section className="w-full bg-yellow sm:pb-10 py-12 sm:px-4">
       {/* <div className="relative mx-auto">
         <div
           ref={trackRef}
@@ -103,22 +104,23 @@ export default function Slider() {
           );
         })}
       </div> */}
+
       <CustomSlider>
+
         {SLIDES.map((slide, index)=>(
-          <div key={index} className='flex gap-2 items-center'>
+          <div key={index} className="flex gap-2 items-center">
             <SliderCard
                 step={slide.step}
                 title={slide.title}
                 description={slide.description}
             />
-            <button
-              className={`z-10 flex-none hidden sm:flex h-8 w-8 items-center justify-center rounded-full bg-slate-900 text-xl font-semibold text-white shadow-xl transition cursor-pointer hover:scale-105 hover:shadow-2xl active:scale-95}`}
-            >
-              &gt;
+            <button className="border border-navy rounded-full w-8 h-8 flex justify-center items-center flex-none">
+              <IconDropdownArrow color="text-navy" direction="right" />
             </button>
           </div>
         ))}
       </CustomSlider>
+
     </section>
   );
 }
