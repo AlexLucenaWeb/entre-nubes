@@ -1,3 +1,4 @@
+import Image from "next/image"
 import CloudDivider from "../layout/CloudDivider"
 import ContactButton from "../partial/ContactButton"
 
@@ -10,7 +11,17 @@ const QuienSoy = () => {
                     <p className="bg-yellow text-navy sm:text-lg px-6 py-2 rounded-full max-w-max">Conoce a tu asesora</p>
                     <h2 className="text-4xl sm:text-5xl md:text-6xl text-green font-semibold">Quien es Laura</h2>
                     <p className="text-xl text-navy">Mi nombre es Laura y soy enfermera, mamá y asesora de sueño infantil respetuoso.</p>
-                    <div className="w-52 h-52 bg-navy rounded-full"></div>
+
+                    <div className="w-52 h-52 bg-green-bg rounded-full flex justify-center items-end overflow-hidden mx-auto sm:mx-0">
+                        <Image
+                            src="/images/lauraOpt.png"
+                            alt="Laura"
+                            width={154}
+                            height={154}
+                            priority  
+                        />
+                    </div>
+
                     <p className="text-xl text-gray">Cuidar y proteger la salud de las personas no solo es mi profesión, también es mi vocación. En mis asesorías de sueño, acompaño a las familias a mejorar su descanso de una manera cercana y personalizada. Sé que cada bebé tiene su propio ritmo, por eso me adapto en todo momento a las necesidades de cada familia, ofreciendo un acompañamiento respetuoso y lleno de cuidado en este proceso de cambio.</p>
                     <ContactButton label="VALORACIÓN GRATUITA" size="px-12 py-3 text-lg" />
                 </div>
