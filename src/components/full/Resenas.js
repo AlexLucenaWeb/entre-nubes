@@ -4,25 +4,20 @@ const Resenas = () => {
 
     const resenas = [
         {
-            title: "Seriously amazing!",
-            text: "Seriously amazing! They are so good with kids and even care about the parents who come in. We have been many times from fever, ear infections, flu shot. It’s great to have a place nearby that you can walk-in in a moments notice to ease your mom nerves or get care for your children! xoxo",
-            autor: "Lauren N., Brave Care Parent"
+            title: "Facil acceso a dudas",
+            text: "Teníamos muchos despertares que exigían movimiento y tiempo para redormir, mala calidad del sueño en toda la familia, ahora tenemos más tiempo para nosotros y para su hermana, lo que más valoramos de Laura son los conocimientos y la forma de transmitirlos.",
+            autor: "Diego y Maca"
         },
         {
-            title: "Resena Dos",
-            text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean hendrerit eu magna sit amet varius. Class aptent taciti sociosqu ad litora torquent",
-            autor: "Lauren N., Brave Care Parent"
+            title: "Bienestar familiar",
+            text: "Nuestro hijo tenía hasta 7 y 8 despertares por noche. El descanso no era reparador y eso generaba bastante cansancio y estrés en casa. Hemos aprendido a manejar mejor nuestras rutinas laborales, adaptando el descanso del niño a los distintos turnos sin que eso suponga tanto desajuste como antes. En definitiva, hemos ganado en bienestar y en equilibrio familiar.",
+            autor: "Laura y Nacho"
         },
         {
-            title: "Resena Tres",
-            text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean hendrerit eu magna sit amet varius. Class aptent taciti sociosqu ad litora torquent",
+            title: "Método muy respetuoso",
+            text: "Nuestro bebé de 8 meses prácticamente se despertaba cada hora. El cambio para todos fue muy positivo, pasó a hacer tirones de más de 3h y eso se notó tanto en el carácter del bebé como del nuestro. Lo que más valoramos fue que el método fue muy respetuoso",
             autor: "Lauren N., Brave Care Parent"
-        },
-        {
-            title: "Resena Cuatro",
-            text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean hendrerit eu magna sit amet varius. Class aptent taciti sociosqu ad litora torquent",
-            autor: "Lauren N., Brave Care Parent"
-        },
+        }
 
     ]
 
