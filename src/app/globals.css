@@ -40,3 +40,20 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+/* globals.css */
+@keyframes floatY {
+  0%, 100% { transform: translateY(-4px); }
+  50%      { transform: translateY(4px); }
+}
+
+.svg-separator-float {
+  animation: floatY 5s ease-in-out infinite;
+  will-change: transform;
+}
+
+/* Respeta accesibilidad */
+@media (prefers-reduced-motion: reduce) {
+  .svg-separator-float { animation: none; }
+}
+

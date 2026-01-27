@@ -1,7 +1,7 @@
 export default function CloudDivider(props) {
   return (
     <svg
-      className={`fill-current ${props.className}`}
+      className={`fill-current ${props.className} `}
       style={props.style}
       viewBox="0 -60 4054 498"
       preserveAspectRatio="xMidYMax slice"
