@@ -1,111 +1,40 @@
-'use client';
+"use client";
 
-import { useRef, useState } from 'react';
-import SliderCard from './SliderCard';
+import { useEffect, useRef, useState } from "react";
+import SliderCard from "./SliderCard";
 
 const SLIDES = [
   {
     step: 1,
-    title: 'Llamada de valoración gratuita',
+    title: "Llamada de valoración gratuita",
     description:
-      'En esta primera toma de contacto charlamos durante unos 30 minutos sobre las dificultades que estáis atravesando y qué tipo de acompañamiento sería el más adecuado para vuestra familia.',
+      "En esta primera toma de contacto charlamos durante unos 30 minutos sobre las dificultades que estáis atravesando y qué tipo de acompañamiento sería el más adecuado para vuestra familia.",
   },
   {
     step: 2,
-    title: 'Primera sesión del plan de sueño',
+    title: "Primera sesión del plan de sueño",
     description:
-      'Diseñamos e implantamos vuestro plan de sueño personalizado. Lo construimos juntos, ajustando mis recomendaciones a vuestro ritmo y necesidades.',
+      "Diseñamos e implantamos vuestro plan de sueño personalizado. Lo construimos juntos, ajustando mis recomendaciones a vuestro ritmo y necesidades.",
   },
   {
     step: 3,
-    title: 'Seguimiento y ajustes',
+    title: "Seguimiento y ajustes",
     description:
-      'Revisamos cómo está funcionando el plan, resolvemos dudas y hacemos los ajustes necesarios para que el bebé y la familia vayáis ganando confianza.',
+      "Revisamos cómo está funcionando el plan, resolvemos dudas y hacemos los ajustes necesarios para que el bebé y la familia vayáis ganando confianza.",
   },
   {
     step: 4,
-    title: 'Consolidación de hábitos',
+    title: "Consolidación de hábitos",
     description:
-      'Trabajamos en consolidar los nuevos hábitos de sueño para que los resultados se mantengan en el tiempo de forma estable.',
+      "Trabajamos en consolidar los nuevos hábitos de sueño para que los resultados se mantengan en el tiempo de forma estable.",
   },
   {
     step: 5,
-    title: 'Cierre y próximos pasos',
+    title: "Cierre y próximos pasos",
     description:
-      'Valoramos todo el proceso, resolvemos las últimas dudas y os dejo una hoja de ruta para gestionar futuros cambios en las rutinas.',
+      "Valoramos todo el proceso, resolvemos las últimas dudas y os dejo una hoja de ruta para gestionar futuros cambios en las rutinas.",
   },
 ];
-
-export default function Slider() {
-  const [index, setIndex] = useState(0);
-  const trackRef = useRef(null);
-
-  const maxIndex = Math.max(0, SLIDES.length);
-  const canGoNext = index < maxIndex;
-
-  const scrollToIndex = (i) => {
-    if (!trackRef.current) return;
-    const card = trackRef.current.children[i];
-    if (!card) return;
-    console.log("ofset ", card.offsetLeft)
-    trackRef.current.scrollTo({
-      left: card.offsetLeft + 100,
-      behavior: 'smooth',
-    });
-  };
-
-  const handleNext = () => {
-    if (!canGoNext) return;
-    const nextIndex = index + 1;
-    setIndex(nextIndex);
-    scrollToIndex(nextIndex);
-  };
-
-  const handleDotClick = (i) => {
-    setIndex(i);
-    scrollToIndex(i);
-  };
-
-  return (
-    <section className="w-full bg-yellow pb-10 sm:-mt-20 sm:pb-12">
-      <div className="relative mx-auto">
-        <div
-          ref={trackRef}
-          className="flex overflow-x-hidden scroll-smooth pb-6 "
-        >
-          {SLIDES.map((slide) => (
-            <div key={slide.step} className="flex items-center m-4 relative shrink-0 grow-0 basis-[85%] sm:basis-[60%] lg:basis-[45%] min-h-[220px] max-w-full">
-              <SliderCard
-                step={slide.step}
-                title={slide.title}
-                description={slide.description}
-              />
-              <NextButton canGoNext={canGoNext} onClick={handleNext}/>
-            </div>
-          ))}
-        </div>
-      </div>
-
-      {/* Puntos de navegación */}
-      <div className="mt-6 flex justify-center gap-3">
-        {Array.from({ length: SLIDES.length }).map((_, i) => {
-          const active = i === index;
-          return (
-            <button
-              key={i}
-              type="button"
-              onClick={() => handleDotClick(i)}
-              aria-label={`Ir al paso ${i + 1}`}
-              className={`h-2.5 w-2.5 rounded-full border border-transparent transition ${
-                active ? 'bg-slate-900' : 'bg-[#d0c5a8] hover:bg-slate-700'
-              }`}
-            />
-          );
-        })}
-      </div>
-    </section>
-  );
-}
 
 function NextButton({ canGoNext, onClick }) {
   return (
@@ -116,11 +45,152 @@ function NextButton({ canGoNext, onClick }) {
       aria-label="Ir al siguiente paso"
       className={`z-10 flex-none hidden sm:flex h-8 w-8 items-center justify-center rounded-full bg-slate-900 text-xl font-semibold text-white shadow-xl transition ${
         canGoNext
-          ? 'cursor-pointer hover:scale-105 hover:shadow-2xl active:scale-95'
-          : 'cursor-default opacity-40 shadow-none'
+          ? "cursor-pointer hover:scale-105 hover:shadow-2xl active:scale-95"
+          : "cursor-default opacity-40 shadow-none"
       }`}
     >
       &gt;
     </button>
+  );
+}
+
+function RestartButton({ onClick }) {
+  return (
+    <button
+      type="button"
+      onClick={onClick}
+      aria-label="Volver al inicio"
+      className="z-10 flex-none hidden sm:flex h-8 w-8 items-center justify-center rounded-full bg-slate-900 text-xl font-semibold text-white shadow-xl transition cursor-pointer hover:scale-105 hover:shadow-2xl active:scale-95"
+    >
+      ↺
+    </button>
+  );
+}
+
+export default function Slider() {
+  const length = SLIDES.length;
+
+  const DESKTOP_SLIDES_PER_VIEW = 2.25; // 2 cards + “peek” de la 3ª
+  const MOBILE_SLIDES_PER_VIEW = 1;
+
+  const [slidesPerView, setSlidesPerView] = useState(DESKTOP_SLIDES_PER_VIEW);
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  const [isLocked, setIsLocked] = useState(false);
+  const [touchStartX, setTouchStartX] = useState(null);
+
+  const sliderRef = useRef(null);
+
+  useEffect(() => {
+    const handleResize = () => {
+      const nextSlidesPerView =
+        window.innerWidth < 768 ? MOBILE_SLIDES_PER_VIEW : DESKTOP_SLIDES_PER_VIEW;
+
+      setSlidesPerView(nextSlidesPerView);
+      // mantenemos el índice y lo “clamp” por si acaso
+      setCurrentIndex((prev) => Math.max(0, Math.min(prev, length - 1)));
+    };
+
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, [length]);
+
+  const totalSlides = length;
+
+  const canGoNext = currentIndex < length - 1;
+  const canGoPrev = currentIndex > 0;
+  const isAtEnd = currentIndex === length - 1;
+
+  const lock = (ms = 500) => {
+    setIsLocked(true);
+    setTimeout(() => setIsLocked(false), ms);
+  };
+
+  const next = () => {
+    if (isLocked || !canGoNext) return;
+    lock(500);
+    setCurrentIndex((prev) => Math.min(prev + 1, length - 1));
+  };
+
+  const prev = () => {
+    if (isLocked || !canGoPrev) return;
+    lock(500);
+    setCurrentIndex((prev) => Math.max(prev - 1, 0));
+  };
+
+  const goToStart = () => {
+    if (isLocked) return;
+    lock(500);
+    setCurrentIndex(0);
+  };
+
+  const handleTouchStart = (e) => {
+    setTouchStartX(e.changedTouches[0].clientX);
+  };
+
+  const handleTouchEnd = (e) => {
+    if (touchStartX === null) return;
+
+    const touchEndX = e.changedTouches[0].clientX;
+    const distance = touchStartX - touchEndX;
+
+    if (distance > 50) next();
+    else if (distance < -50) prev();
+
+    setTouchStartX(null);
+  };
+
+  const translateX = -(currentIndex * (100 / totalSlides));
+
+  return (
+    <div className="w-full overflow-hidden pl-3 relative" data-component="Slider">
+      <div
+        ref={sliderRef}
+        className="flex transition-transform duration-500 ease-in-out"
+        onTouchStart={handleTouchStart}
+        onTouchEnd={handleTouchEnd}
+        style={{
+          width: `${(totalSlides * 100) / slidesPerView}%`,
+          transform: `translateX(${translateX}%)`,
+        }}
+      >
+        {SLIDES.map((slide, i) => (
+          <div
+            key={slide.step}
+            className="flex-shrink-0"
+            style={{ width: `${100 / totalSlides}%` }}
+          >
+            <div className="px-2 flex items-center">
+              <SliderCard {...slide} />
+
+              {/* Botón “después de la tarjeta” (tu layout) */}
+              {i < length - 1 ? (
+                <NextButton canGoNext={canGoNext} onClick={next} />
+              ) : (
+                 <RestartButton onClick={goToStart} />
+              )}
+            </div>
+          </div>
+        ))}
+      </div>
+
+      {/* Dots */}
+      <div className="mt-4 px-4">
+        <div className="flex justify-center space-x-2">
+          {SLIDES.map((_, i) => (
+            <button
+              key={i}
+              type="button"
+              onClick={() => setCurrentIndex(i)}
+              className={`w-5 h-5 rounded-full transition-colors duration-200 ${
+                i === currentIndex ? "bg-orange" : "bg-stone"
+              }`}
+              aria-label={`Ir a la tarjeta ${i + 1}`}
+            />
+          ))}
+        </div>
+      </div>
+    </div>
   );
 }
