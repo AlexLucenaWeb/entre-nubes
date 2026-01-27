@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import IconArrow from "../icons/arrow";
 import SliderCard from "./SliderCard";
 
 const SLIDES = [
@@ -43,13 +44,13 @@ function NextButton({ canGoNext, onClick }) {
       onClick={onClick}
       disabled={!canGoNext}
       aria-label="Ir al siguiente paso"
-      className={`z-10 flex-none hidden sm:flex h-8 w-8 items-center justify-center rounded-full bg-slate-900 text-xl font-semibold text-white shadow-xl transition ${
+      className={`z-10 flex-none hidden sm:flex h-10 w-10 items-center justify-center rounded-full shadow-xl transition ${
         canGoNext
           ? "cursor-pointer hover:scale-105 hover:shadow-2xl active:scale-95"
           : "cursor-default opacity-40 shadow-none"
       }`}
     >
-      &gt;
+      <IconArrow direction="right"/>
     </button>
   );
 }
@@ -60,9 +61,9 @@ function RestartButton({ onClick }) {
       type="button"
       onClick={onClick}
       aria-label="Volver al inicio"
-      className="z-10 flex-none hidden sm:flex h-8 w-8 items-center justify-center rounded-full bg-slate-900 text-xl font-semibold text-white shadow-xl transition cursor-pointer hover:scale-105 hover:shadow-2xl active:scale-95"
+      className="z-10 flex-none hidden sm:flex h-8 w-8 items-center justify-center  shadow-xl transition cursor-pointer hover:scale-105 hover:shadow-2xl active:scale-95"
     >
-      ↺
+      <IconArrow direction="left"/>
     </button>
   );
 }
@@ -144,7 +145,7 @@ export default function Slider() {
   const translateX = -(currentIndex * (100 / totalSlides));
 
   return (
-    <div className="w-full overflow-hidden pl-3 relative" data-component="Slider">
+    <div className="w-full overflow-hidden pl-3 relative pt-4 sm:pt-0 pb-16 sm:pb-0" data-component="Slider">
       <div
         ref={sliderRef}
         className="flex transition-transform duration-500 ease-in-out"
@@ -177,17 +178,19 @@ export default function Slider() {
 
       {/* Dots */}
       <div className="mt-4 px-4">
-        <div className="flex justify-center space-x-2">
+        <div className="flex justify-center space-x-2 sm:hidden">
           {SLIDES.map((_, i) => (
             <button
               key={i}
               type="button"
               onClick={() => setCurrentIndex(i)}
-              className={`w-5 h-5 rounded-full transition-colors duration-200 ${
-                i === currentIndex ? "bg-orange" : "bg-stone"
-              }`}
               aria-label={`Ir a la tarjeta ${i + 1}`}
-            />
+              className={`w-8 h-8 text-sm rounded-full transition-colors duration-200 text-navy ${
+                i === currentIndex ? "bg-navy text-white" : "bg-stone text-navy"
+              }`}
+            >
+              {i+1}
+            </button>
           ))}
         </div>
       </div>
