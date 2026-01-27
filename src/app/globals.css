@@ -43,12 +43,12 @@ body {
 
 /* globals.css */
 @keyframes floatY {
-  0%, 100% { transform: translateY(-4px); }
-  50%      { transform: translateY(4px); }
+  0%, 100% { transform: translateY(-5px); }
+  50%      { transform: translateY(5px); }
 }
 
 .svg-separator-float {
-  animation: floatY 5s ease-in-out infinite;
+  animation: floatY 4s ease-in-out infinite;
   will-change: transform;
 }
 
