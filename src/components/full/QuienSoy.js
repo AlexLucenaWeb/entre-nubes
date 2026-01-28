@@ -37,7 +37,7 @@ const QuienSoy = () => {
                     </div>
                 </div>
             </div>
-            <div className="pointer-events-none absolute inset-x-0 bottom-0 h-24 md:h-32 lg:h-40 overflow-hidden flex items-end">
+            <div className="pointer-events-none absolute inset-x-0 bottom-0 h-24 md:h-32 lg:h-40 2xl:h-60 overflow-hidden flex items-end">
                 <CloudDivider className="absolute bottom-0 left-1/2 -translate-x-1/2 block h-full w-auto min-w-[120%] text-yellow svg-separator-float" />
                 <div className="w-full h-[4px] sm:h-2  bg-yellow"></div>
             </div>

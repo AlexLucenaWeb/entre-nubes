@@ -5,7 +5,7 @@ import Image from "next/image"
 const Hero = () => {
 
     return (
-        <section data-component="Hero" id="hero" className="w-full flex justify-center bg-green-bg pb-20 sm:pb-40 relative">
+        <section data-component="Hero" id="hero" className="w-full flex justify-center bg-green-bg pb-20 sm:pb-40 xl:pb-50 relative">
             <div className="sm:grid grid-cols-12 max-w-[1580px] py-10 sm:py-20 px-3 sm:px-10 gap-16">
                 <div className="mb-10 col-span-7 space-y-9">
                     <p className="hidden sm:block bg-yellow text-navy text-lg px-6 py-2 rounded-full max-w-max">Sueño tranquilo, crianza consciente. Acompañamos cada paso.</p>
@@ -24,7 +24,7 @@ const Hero = () => {
                     />
                 </div>
             </div>
-            <div className="pointer-events-none absolute inset-x-0 bottom-0 h-24 md:h-32 lg:h-40 overflow-hidden flex items-end">
+            <div className="pointer-events-none absolute inset-x-0 bottom-0 h-24 md:h-32 lg:h-40 2xl:h-60 overflow-hidden flex items-end">
                 <CloudDivider className="absolute bottom-0 left-1/2 -translate-x-1/2 block h-full w-auto min-w-[120%] text-white svg-separator-float"/>
                 <div className="w-full h-[4px] sm:h-2  bg-white"></div>
             </div>
