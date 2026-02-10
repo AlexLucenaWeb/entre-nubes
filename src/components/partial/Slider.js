@@ -13,28 +13,28 @@ const SLIDES = [
   },
   {
     step: 2,
+    title: "Pautas iniciales",
+    description:
+      "Os envío un documento con una serie de pautas, con cambios ligeros, para que implementéis poco a poco en los siguientes 10 días.",
+  },
+  {
+    step: 3,
     title: "Primera sesión del plan de sueño",
     description:
       "Diseñamos e implantamos vuestro plan de sueño personalizado. Lo construimos juntos, ajustando mis recomendaciones a vuestro ritmo y necesidades.",
   },
   {
-    step: 3,
+    step: 4,
     title: "Seguimiento y ajustes",
     description:
       "Revisamos cómo está funcionando el plan, resolvemos dudas y hacemos los ajustes necesarios para que el bebé y la familia vayáis ganando confianza.",
   },
   {
-    step: 4,
-    title: "Consolidación de hábitos",
-    description:
-      "Trabajamos en consolidar los nuevos hábitos de sueño para que los resultados se mantengan en el tiempo de forma estable.",
-  },
-  {
     step: 5,
-    title: "Cierre y próximos pasos",
+    title: "Consolidación de hábitos y cierre",
     description:
-      "Valoramos todo el proceso, resolvemos las últimas dudas y os dejo una hoja de ruta para gestionar futuros cambios en las rutinas.",
-  },
+      "Trabajamos en consolidar los nuevos hábitos para que los resultados se mantengan en el tiempo y os dejo una hoja de ruta para gestionar futuros cambios.",
+  }
 ];
 
 function NextButton({ canGoNext, onClick }) {
