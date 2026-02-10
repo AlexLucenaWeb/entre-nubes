@@ -22,7 +22,11 @@ const QuienSoy = () => {
                         />
                     </div>
 
-                    <p className="text-xl text-gray">Cuidar y proteger la salud de las personas no solo es mi profesión, también es mi vocación. En mis asesorías de sueño, acompaño a las familias a mejorar su descanso de una manera cercana y personalizada. Sé que cada bebé tiene su propio ritmo, por eso me adapto en todo momento a las necesidades de cada familia, ofreciendo un acompañamiento respetuoso y lleno de cuidado en este proceso de cambio.</p>
+                    <p className="text-xl text-gray">
+                        Cuidar y proteger la salud de las personas no solo es mi profesión, también es mi vocación. En mis asesorías de sueño, acompaño a las familias a mejorar su descanso de una manera cercana y personalizada. 
+                        <br/>
+                        Sé que cada bebé tiene su propio ritmo, por eso me adapto en todo momento a las necesidades de cada familia, ofreciendo un acompañamiento respetuoso y lleno de cuidado en este proceso de cambio.
+                    </p>
                     <ContactButton label="VALORACIÓN GRATUITA" size="px-12 py-3 text-lg" />
                 </div>
                 <div className="col-span-6 flex items-center">
