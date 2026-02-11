@@ -26,8 +26,8 @@ const Resenas = () => {
             <div className="sm:grid grid-cols-12 w-full max-w-[1580px] px-5 mx-auto">
                <div className="mb-10 col-span-8 space-y-9">
                     <p className="bg-yellow text-navy sm:text-lg px-6 py-2 rounded-full max-w-max">Review de las familias</p>
-                    <h3 className="text-4xl sm:text-5xl md:text-6xl text-green font-semibold">Porque descansar es una necesidad, mi propósito es acompañarte</h3>
-                    {/* <p className="text-xl text-gray">Entre nubes nace como un espacio de acompañamiento a familias que desean mejorar el descanso en casa. Mi enfoque es cercano y personalizado, poniendo siempre en el centro las necesidades y el bienestar de cada bebé, con respeto y cuidado en cada paso del proceso.</p> */}
+                    <h3 className="text-4xl sm:text-5xl md:text-6xl text-green font-semibold">Acompañar significa escuchar, sostener y transitar el cambio juntos.</h3>
+                    <p className="text-xl text-gray">Así lo han vivido algunas de las familias con las que he trabajado.</p>
                 </div>
                 <div className="col-span-12 sm:grid grid-cols-4 gap-6 mb-10">
                     {resenas.map((resena, index)=> (
