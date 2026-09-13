@@ -3,6 +3,7 @@ import HeaderNav from "@/components/layout/HeaderNav";
 import Footer from "@/components/layout/Footer";
 import "./globals.css";
 import StickyHeader from "@/components/layout/StickyHeader";
+import { site, siteUrl } from "@/lib/site";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -17,8 +18,50 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
-  title: "Entre Nubes Descanso",
-  description: "Entre Nubes Descanso",
+  metadataBase: new URL(siteUrl),
+  title: {
+    default: site.titulo,
+    template: `%s | ${site.nombre}`,
+  },
+  description: site.descripcion,
+  applicationName: site.nombre,
+  authors: [{ name: site.asesora.nombre }],
+  creator: site.asesora.nombre,
+  publisher: site.nombre,
+  keywords: [
+    "asesora de sueño infantil",
+    "sueño infantil respetuoso",
+    "plan de sueño bebé",
+    "despertares nocturnos bebé",
+    "asesoría de sueño online",
+    "consultora de sueño infantil",
+  ],
+  alternates: {
+    canonical: "/",
+  },
+  openGraph: {
+    type: "website",
+    locale: "es_ES",
+    url: "/",
+    siteName: site.nombre,
+    title: site.titulo,
+    description: site.descripcion,
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: site.titulo,
+    description: site.descripcion,
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
 };
 
 export default function RootLayout({ children }) {

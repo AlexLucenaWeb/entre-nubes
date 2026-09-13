@@ -15,7 +15,7 @@ const QuienSoy = () => {
                     <div className="w-52 h-52 bg-green-bg rounded-full flex justify-center items-end overflow-hidden mx-auto sm:mx-0">
                         <Image
                             src="/images/lauraOpt.png"
-                            alt="Laura"
+                            alt="Laura de la Corte, enfermera y asesora de sueño infantil"
                             width={154}
                             height={154}
                             priority  

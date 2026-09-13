@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import Logo from "../icons/logo";
 import BurgerIcon from "../icons/BurguerMenu";
 import ContactButton from "../partial/ContactButton";
-import { refLinkHandler } from "@/lib/utils";
+import { anchorScrollHandler } from "@/lib/utils";
 
 const StickyHeader = () => {
   const [showStickyNav, setShowStickyNav] = useState(false);
@@ -34,8 +34,8 @@ const StickyHeader = () => {
 
   const toggleMenu = () => setIsMenuOpen((v) => !v);
 
-  const handleMobileNav = (destino) => {
-    refLinkHandler(destino);
+  const handleMobileNav = (e, destino) => {
+    anchorScrollHandler(e, destino);
     setIsMenuOpen(false);
   };
 
@@ -54,13 +54,14 @@ const StickyHeader = () => {
         {/* Desktop nav */}
         <nav className="hidden sm:flex gap-8 items-center">
           {headerLinks.map((link, index) => (
-            <button
+            <a
               key={index}
-              onClick={() => refLinkHandler(link.destino)}
+              href={`#${link.destino}`}
+              onClick={(e) => anchorScrollHandler(e, link.destino)}
               className="cursor-pointer text-navy transition-colors duration-300 rounded-full px-3 hover:bg-navy-light hover:text-white"
             >
               {link.label}
-            </button>
+            </a>
           ))}
           <ContactButton label="Contacta" size="px-4 py-2" />
         </nav>
@@ -88,12 +89,13 @@ const StickyHeader = () => {
         <ul className="px-5 py-4 flex flex-col gap-3">
           {headerLinks.map((link, index) => (
             <li key={index}>
-              <button
-                onClick={() => handleMobileNav(link.destino)}
-                className="w-full text-left cursor-pointer text-navy transition-colors duration-300 rounded-full px-3 py-2 hover:bg-navy-light hover:text-white"
+              <a
+                href={`#${link.destino}`}
+                onClick={(e) => handleMobileNav(e, link.destino)}
+                className="block w-full text-left cursor-pointer text-navy transition-colors duration-300 rounded-full px-3 py-2 hover:bg-navy-light hover:text-white"
               >
                 {link.label}
-              </button>
+              </a>
             </li>
           ))}
 

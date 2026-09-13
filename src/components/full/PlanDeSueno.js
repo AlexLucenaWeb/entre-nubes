@@ -26,7 +26,7 @@ const Asesorias = () => {
                     <div className="hidden sm:flex col-span-6 items-center">
                         <Image
                             src="/images/planSuenoImg.svg"
-                            alt="Entrenubes"
+                            alt="Madre con su bebé en brazos junto a una cuna"
                             width={541}
                             height={541}
                             priority  
@@ -75,7 +75,7 @@ const Asesorias = () => {
             <div className="sm:hidden pt-10 flex items-center">
                 <Image
                     src="/images/planSuenoImg.svg"
-                    alt="Entrenubes"
+                    alt="Madre con su bebé en brazos junto a una cuna"
                     width={541}
                     height={541}
                     priority  

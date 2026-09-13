@@ -3,7 +3,7 @@
 import Logo from "../icons/logo"
 import Insta from "../icons/insta"
 import ContactButton from "../partial/ContactButton"
-import { refLinkHandler } from "@/lib/utils"
+import { anchorScrollHandler } from "@/lib/utils"
 
 const Footer = () => {
 
@@ -19,13 +19,13 @@ const Footer = () => {
                     </a>
                 </div>
                 <div className="flex flex-col sm:flex-row gap-6 py-6 items-center">
-                    <button onClick={() => refLinkHandler("hero")} className="cursor-pointer hover:text-yellow transition-colors duration-300">Sueño respetuoso</button>
+                    <a href="#hero" onClick={(e) => anchorScrollHandler(e, "hero")} className="cursor-pointer hover:text-yellow transition-colors duration-300">Sueño respetuoso</a>
                     <span className="hidden sm:block w-px h-5 bg-white"></span>
-                    <button onClick={() => refLinkHandler("quienSoy")} className="cursor-pointer hover:text-yellow transition-colors duration-300">Quién es Laura</button>
+                    <a href="#quienSoy" onClick={(e) => anchorScrollHandler(e, "quienSoy")} className="cursor-pointer hover:text-yellow transition-colors duration-300">Quién es Laura</a>
                     <span className="hidden sm:block w-px h-5 bg-white"></span>
-                    <button onClick={() => refLinkHandler("planSueno")} className="cursor-pointer hover:text-yellow transition-colors duration-300">Nuestro Plan</button>
+                    <a href="#planSueno" onClick={(e) => anchorScrollHandler(e, "planSueno")} className="cursor-pointer hover:text-yellow transition-colors duration-300">Nuestro Plan</a>
                     <span className="hidden sm:block w-px h-5 bg-white"></span>
-                    <button onClick={() => refLinkHandler("resenas" )} className="cursor-pointer hover:text-yellow transition-colors duration-300">Relatos familiares</button>
+                    <a href="#resenas" onClick={(e) => anchorScrollHandler(e, "resenas")} className="cursor-pointer hover:text-yellow transition-colors duration-300">Relatos familiares</a>
                 </div>
                 <div className="flex gap-2">
                     <p>Síguenos en</p>

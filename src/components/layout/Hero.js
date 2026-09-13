@@ -17,7 +17,7 @@ const Hero = () => {
                 <div className="col-span-5">
                     <Image
                         src="/images/hero_image.svg"
-                        alt="Entrenubes"
+                        alt="Madre acostando a su bebé dormido en un moisés"
                         width={541}
                         height={541}
                         priority  
