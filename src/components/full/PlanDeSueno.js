@@ -69,7 +69,7 @@ const Asesorias = () => {
                     </div>
                 </div>
             </div>
-            <div className="px-5 lg:py-6">
+            <div className="px-5 py-4 lg:py-6">
                 <ContactButton label="VALORACIÓN GRATUITA" size="px-12 py-3 text-lg" />
             </div>
             <div className="sm:hidden pt-10 flex items-center">
