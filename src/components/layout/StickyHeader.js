@@ -52,7 +52,7 @@ const StickyHeader = () => {
         </div>
 
         {/* Desktop nav */}
-        <nav className="hidden sm:flex gap-8 items-center">
+        <nav className="hidden lg:flex gap-8 items-center">
           {headerLinks.map((link, index) => (
             <a
               key={index}
@@ -69,7 +69,7 @@ const StickyHeader = () => {
         {/* Burger button */}
         <button
           type="button"
-          className="sm:hidden"
+          className="lg:hidden"
           onClick={toggleMenu}
           aria-expanded={isMenuOpen}
           aria-controls="mobile-menu"
@@ -81,7 +81,7 @@ const StickyHeader = () => {
       {/* Burger Menu (Mobile) */}
       <nav
         id="mobile-menu"
-        className={`sm:hidden absolute left-0 top-full w-full bg-white shadow-md overflow-hidden
+        className={`lg:hidden absolute left-0 top-full w-full bg-white shadow-md overflow-hidden
           transition-[max-height,opacity,transform] duration-300 ease-out
           ${isMenuOpen ? "max-h-96 opacity-100 translate-y-0" : "max-h-0 opacity-0 -translate-y-2 pointer-events-none"}
         `}

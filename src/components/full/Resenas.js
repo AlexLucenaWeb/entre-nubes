@@ -12,9 +12,9 @@ const Resenas = () => {
                     <h2 className="text-4xl sm:text-5xl md:text-6xl text-green font-semibold">Acompañar significa escuchar, sostener y transitar el cambio juntos.</h2>
                     <p className="text-xl text-gray">Así lo han vivido algunas de las familias con las que he trabajado.</p>
                 </div>
-                <div className="col-span-12 sm:grid grid-cols-4 gap-6 mb-10">
+                <div className="col-span-12 sm:grid sm:grid-cols-2 xl:grid-cols-4 gap-6 mb-10">
                     {resenas.map((resena, index)=> (
-                        <div key={index} className={`p-5 rounded-lg mb-5 sm:mb-0 ${index === 0 || index === 2 ? "bg-navy-light" : "bg-yellow text-gray"}`}>
+                        <div key={index} className={`p-5 rounded-lg mb-5 sm:mb-0 ${index === 0 || index === 2 ? "bg-navy-light text-white" : "bg-yellow text-gray"}`}>
                             <div className="flex gap-2 mb-3">
                                 <StarIcon/>
                                 <StarIcon/>

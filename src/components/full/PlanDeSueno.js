@@ -8,7 +8,7 @@ const Asesorias = () => {
     return (
         <section data-component="PlanDeSueno" id="planSueno" className="w-full bg-yellow pt-10 sm:pt-20 pb-20 sm:pb-50 z-10 relative">
             <div>
-                <div className="sm:grid grid-cols-12 w-full max-w-[1580px] px-5 gap-20 items-center mx-auto">
+                <div className="lg:grid grid-cols-12 w-full max-w-[1580px] px-5 gap-20 items-center mx-auto">
                 <div className="sm:mb-2 col-span-6 space-y-4 sm:space-y-9">
                         <p className="bg-white text-navy sm:text-lg px-6 py-2 rounded-full max-w-max">Servicios</p>
                         <h2 className="text-4xl sm:text-5xl md:text-6xl text-navy font-semibold">Plan de sueño</h2>
@@ -23,7 +23,7 @@ const Asesorias = () => {
                         </ul>
                         <p className="bg-bold text-navy mt-10 font-bold">El plan consta de 5 pasos:</p>
                     </div>
-                    <div className="hidden sm:flex col-span-6 items-center">
+                    <div className="hidden lg:flex col-span-6 items-center">
                         <Image
                             src="/images/planSuenoImg.svg"
                             alt="Madre con su bebé en brazos junto a una cuna"
@@ -38,7 +38,7 @@ const Asesorias = () => {
                 </div>
             </div>
             <div className="w-full max-w-[1580px] px-5 mx-auto pt-10 sm:pt-20">
-                <div className="sm:grid grid-cols-12 gap-20 items-center">
+                <div className="lg:grid grid-cols-12 gap-20 items-center">
                     <div className="col-span-6 space-y-4 sm:space-y-9">
                         <h3 className="text-3xl sm:text-4xl md:text-5xl text-navy font-semibold">Consulta puntual</h3>
                         <p className="sm:text-xl text-gray">
@@ -52,7 +52,7 @@ const Asesorias = () => {
                             <li><span className="font-bold">Edad recomendada:</span> hasta 3 años</li>
                         </ul>
                     </div>
-                    <div className="col-span-6 flex items-center mt-10 sm:mt-0">
+                    <div className="col-span-6 flex items-center mt-10 lg:mt-0">
                         <div className="rounded-4xl bg-white shadow-lg p-6 sm:p-12 space-y-6 sm:space-y-8 text-navy">
                             <p className="font-bold">Las dificultades más habituales son:</p>
                             <ul className="space-y-3 sm:text-xl list-disc pl-5 marker:text-navy">
@@ -72,7 +72,7 @@ const Asesorias = () => {
             <div className="px-5 py-4 lg:py-6">
                 <ContactButton label="VALORACIÓN GRATUITA" size="px-12 py-3 text-lg" />
             </div>
-            <div className="sm:hidden pt-10 flex items-center">
+            <div className="lg:hidden pt-10 flex items-center">
                 <Image
                     src="/images/planSuenoImg.svg"
                     alt="Madre con su bebé en brazos junto a una cuna"

@@ -35,7 +35,7 @@ const HeaderNav = () => {
           </div>
 
           {/* Desktop nav */}
-          <nav className="hidden sm:flex gap-6 items-center">
+          <nav className="hidden lg:flex gap-6 items-center">
             {headerLinks.map((link, index) => (
               <a
                 key={index}
@@ -52,7 +52,7 @@ const HeaderNav = () => {
           {/* Burger button */}
           <button
             type="button"
-            className="sm:hidden"
+            className="lg:hidden"
             onClick={toggleMenu}
             aria-expanded={isMenuOpen}
             aria-controls="mobile-menu"
@@ -67,7 +67,7 @@ const HeaderNav = () => {
       <nav
         id="mobile-menu"
         className={[
-          "sm:hidden absolute left-0 right-0 top-full bg-green-bg shadow-md overflow-hidden z-50",
+          "lg:hidden absolute left-0 right-0 top-full bg-green-bg shadow-md overflow-hidden z-50",
           "transition-all duration-300 ease-out",
           isMenuOpen
             ? "max-h-screen opacity-100 translate-y-0"

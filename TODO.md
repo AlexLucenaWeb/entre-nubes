@@ -51,8 +51,10 @@ Cuando esté decidido, hay que reflejarlo en tres sitios:
   (991×1281 servida como 154×154), `planSuenoImg` duplicada, SVG de nubes
   repetido, SVGO, listeners sin throttle.
 - **P3** — Accesibilidad: labels del formulario comentados, foco no atrapado en
-  el modal, contraste de las tarjetas `bg-navy-light`, dots del slider sin
-  `aria-current`, navegación duplicada.
+  el modal, dots del slider sin `aria-current`, navegación duplicada.
+  - [x] Contraste de las tarjetas `bg-navy-light`: resuelto con `text-white`.
+    Pasa de heredar el color del `body` (que cambiaba según el tema del sistema
+    del visitante) a blanco fijo. Contraste medido: 7,45:1, cumple WCAG AAA.
 - **P4** — Conversión: sin analítica, email en texto plano en el footer, sin CTA
   de WhatsApp.
 - **P5** — Código: `headerLinks` duplicado en 3 componentes, clases inexistentes

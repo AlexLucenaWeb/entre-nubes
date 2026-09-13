@@ -6,7 +6,7 @@ const Hero = () => {
 
     return (
         <section data-component="Hero" id="hero" className="w-full flex justify-center bg-green-bg pb-20 sm:pb-40 xl:pb-50 relative">
-            <div className="sm:grid grid-cols-12 max-w-[1580px] py-10 sm:py-20 px-3 sm:px-10 gap-16">
+            <div className="lg:grid grid-cols-12 max-w-[1580px] py-10 sm:py-20 px-3 sm:px-10 gap-16">
                 <div className="mb-10 col-span-7 space-y-9">
                     <p className="hidden sm:block bg-yellow text-navy text-lg px-6 py-2 rounded-full max-w-max">Sueño tranquilo, crianza consciente. Acompañamos cada paso.</p>
                     <h1 className="text-4xl sm:text-5xl md:text-6xl text-green font-bold">Porque descansar es una necesidad, mi propósito es acompañarte</h1>
