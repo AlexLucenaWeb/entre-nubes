@@ -6,6 +6,46 @@ export const dynamic = "force-dynamic";
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
+// --- Rate limit ---------------------------------------------------------
+// Contador en memoria del proceso. Frena un flood desde una misma IP sin
+// necesidad de infraestructura extra. Aviso: en serverless cada instancia
+// tiene su propio contador y se pierde al enfriarse, así que no es una
+// barrera dura. Si algún día hace falta algo serio, mover a Upstash/Redis.
+const RATE_LIMIT_MAX = 5; // envíos permitidos...
+const RATE_LIMIT_WINDOW_MS = 10 * 60 * 1000; // ...por IP en esta ventana
+const MAX_IPS_EN_MEMORIA = 500;
+
+const envios = new Map();
+
+function purgarCaducados(ahora) {
+  for (const [ip, marcas] of envios) {
+    const vigentes = marcas.filter((t) => ahora - t < RATE_LIMIT_WINDOW_MS);
+    if (vigentes.length) envios.set(ip, vigentes);
+    else envios.delete(ip);
+  }
+}
+
+function dentroDelLimite(ip) {
+  const ahora = Date.now();
+
+  if (envios.size > MAX_IPS_EN_MEMORIA) purgarCaducados(ahora);
+
+  const vigentes = (envios.get(ip) || []).filter(
+    (t) => ahora - t < RATE_LIMIT_WINDOW_MS
+  );
+
+  if (vigentes.length >= RATE_LIMIT_MAX) {
+    envios.set(ip, vigentes);
+    return false;
+  }
+
+  vigentes.push(ahora);
+  envios.set(ip, vigentes);
+  return true;
+}
+
+// -----------------------------------------------------------------------
+
 function isValidEmail(email) {
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(String(email || "").trim());
 }
@@ -26,6 +66,28 @@ function escapeHtml(str) {
 
 export async function POST(req) {
   try {
+    // x-forwarded-for puede venir como "cliente, proxy1, proxy2"
+    const ip =
+      (req.headers.get("x-forwarded-for") || "").split(",")[0].trim() ||
+      req.headers.get("x-real-ip") ||
+      "";
+    const ua = req.headers.get("user-agent") || "";
+
+    if (!dentroDelLimite(ip || "sin-ip")) {
+      return NextResponse.json(
+        { ok: false, error: "Too many requests" },
+        { status: 429 }
+      );
+    }
+
+    const body = await req.json().catch(() => ({}));
+
+    // Honeypot: campo invisible para personas, tentador para bots.
+    // Si viene relleno devolvemos éxito sin enviar nada, para no darles pistas.
+    if (String(body.website || "").trim()) {
+      return NextResponse.json({ ok: true }, { status: 200 });
+    }
+
     if (!process.env.RESEND_API_KEY) {
       return NextResponse.json(
         { ok: false, error: "Missing RESEND_API_KEY" },
@@ -42,11 +104,15 @@ export async function POST(req) {
       );
     }
 
-    // En prod, lo recomendado es usar tu dominio verificado.
-    const from =
-      process.env.RESEND_FROM || "Web Contact <jano@test.dev>";
-
-    const body = await req.json().catch(() => ({}));
+    // Debe ser un dominio verificado en Resend. Sin valor preferimos fallar
+    // antes que enviar desde un remitente que acabaría en spam.
+    const from = process.env.RESEND_FROM;
+    if (!from) {
+      return NextResponse.json(
+        { ok: false, error: "Missing RESEND_FROM env var" },
+        { status: 500 }
+      );
+    }
 
     const name = clamp(body.name, 120).trim();
     const email = clamp(body.email, 200).trim();
@@ -65,12 +131,6 @@ export async function POST(req) {
         { status: 400 }
       );
     }
-
-    const ip =
-      req.headers.get("x-forwarded-for") ||
-      req.headers.get("x-real-ip") ||
-      "";
-    const ua = req.headers.get("user-agent") || "";
 
     const subject = `Nuevo mensaje de ${name}`;
 

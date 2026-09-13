@@ -11,6 +11,7 @@ export default function ContactForm() {
     name: "",
     email: "",
     notes: "",
+    website: "", // honeypot: debe quedarse vacío
   });
 
   const [status, setStatus] = useState("idle"); // idle | loading | success | error
@@ -58,24 +59,30 @@ export default function ContactForm() {
           name: form.name.trim(),
           email: form.email.trim(),
           notes: form.notes.trim(),
+          website: form.website,
         }),
       });
 
+      if (res.status === 429) {
+        setStatus("error");
+        setErrorMsg(
+          "Has enviado varios mensajes seguidos. Espera unos minutos e inténtalo de nuevo."
+        );
+        return;
+      }
+
       if (!res.ok) {
-        const text = await res.text().catch(() => "");
-        throw new Error(text || "No se pudo enviar el formulario.");
+        throw new Error("No se pudo enviar el formulario.");
       }
 
       setStatus("success");
-      setForm({ name: "", email: "", notes: "" });
-    } catch (err) {
+      setForm({ name: "", email: "", notes: "", website: "" });
+    } catch {
       setStatus("error");
-      setErrorMsg(err?.message || "Error inesperado.");
+      setErrorMsg(
+        "Ha habido un error en el envío. Por favor, inténtalo más tarde."
+      );
     }
-  }
-
-  if(status === "error" && errorMsg){
-    console.log(errorMsg)
   }
 
   return (
@@ -134,6 +141,21 @@ export default function ContactForm() {
         />
       </div>
 
+      {/* Honeypot: oculto a la vista y fuera del tabulador. Si se rellena,
+          el servidor descarta el envío en silencio. */}
+      <div className="absolute left-[-9999px] top-0 h-0 w-0 overflow-hidden" aria-hidden="true">
+        <label htmlFor="website">No rellenes este campo</label>
+        <input
+          id="website"
+          name="website"
+          type="text"
+          tabIndex={-1}
+          autoComplete="off"
+          value={form.website}
+          onChange={(e) => setForm((s) => ({ ...s, website: e.target.value }))}
+        />
+      </div>
+
       <button
         type="submit"
         disabled={!canSubmit}
@@ -150,7 +172,7 @@ export default function ContactForm() {
 
       {status === "error" && errorMsg && (
         <div className="rounded-xl border border-red-200 bg-red-50 px-4 py-3 text-red-800">
-          <p>Ha habido un error en el envio. Por favor, inténtalo más tarde.</p>
+          <p>{errorMsg}</p>
         </div>
       )}
     </form>
