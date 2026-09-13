@@ -9,31 +9,31 @@ const SLIDES = [
     step: 1,
     title: "Llamada de valoración gratuita",
     description:
-      "En esta primera toma de contacto charlamos durante unos 30 minutos sobre las dificultades que estáis atravesando y qué tipo de acompañamiento sería el más adecuado para vuestra familia.",
+      "En esta primera toma de contacto charlamos por **videollamada** durante unos **30 minutos** sobre las dificultades que estáis atravesando y qué tipo de acompañamiento sería el más adecuado para vuestra familia.",
   },
   {
     step: 2,
     title: "Pautas iniciales",
     description:
-      "Os envío un documento con una serie de pautas, con cambios ligeros, para que implementéis poco a poco en los siguientes 10 días.",
+      "Os envío un documento con una serie de pautas, con **cambios ligeros**, para que implementéis poco a poco en los siguientes **10 días**.",
   },
   {
     step: 3,
     title: "Primera sesión del plan de sueño",
     description:
-      "Diseñamos e implantamos vuestro plan de sueño personalizado. Lo construimos juntos, ajustando mis recomendaciones a vuestro ritmo y necesidades.",
+      "Diseñamos e implantamos vuestro **plan de sueño personalizado**. Lo construimos juntos, ajustando mis recomendaciones a vuestro ritmo y necesidades.",
   },
   {
     step: 4,
     title: "Seguimiento y ajustes",
     description:
-      "Revisamos cómo está funcionando el plan, resolvemos dudas y hacemos los ajustes necesarios para que el bebé y la familia vayáis ganando confianza.",
+      "Revisamos cómo está funcionando el plan, resolvemos dudas y hacemos los **ajustes necesarios** para que el bebé y la familia vayáis ganando confianza.",
   },
   {
     step: 5,
     title: "Consolidación de hábitos y cierre",
     description:
-      "Trabajamos en consolidar los nuevos hábitos para que los resultados se mantengan en el tiempo y os dejo una hoja de ruta para gestionar futuros cambios.",
+      "Trabajamos en consolidar los nuevos hábitos para que los resultados se mantengan en el tiempo y os dejo una **hoja de ruta** para gestionar futuros cambios.",
   }
 ];
 

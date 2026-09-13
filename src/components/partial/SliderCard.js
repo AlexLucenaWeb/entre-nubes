@@ -1,3 +1,18 @@
+// Permite marcar palabras en negrita dentro de la descripción con **asteriscos**
+function renderConNegrita(texto) {
+  return String(texto)
+    .split(/(\*\*[^*]+\*\*)/g)
+    .map((trozo, i) =>
+      trozo.startsWith("**") && trozo.endsWith("**") ? (
+        <strong key={i} className="font-semibold text-slate-900">
+          {trozo.slice(2, -2)}
+        </strong>
+      ) : (
+        trozo
+      )
+    );
+}
+
 export default function SliderCard({ step, title, description }) {
   return (
     <article
@@ -14,7 +29,7 @@ export default function SliderCard({ step, title, description }) {
           {title}
         </h3>
         <p className="text-sm leading-relaxed text-slate-600 md:text-[0.95rem]">
-          {description}
+          {renderConNegrita(description)}
         </p>
       </div>
     </article>

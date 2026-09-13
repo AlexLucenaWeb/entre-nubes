@@ -27,6 +27,13 @@ const QuienSoy = () => {
                         <br/>
                         Sé que cada bebé tiene su propio ritmo, por eso me adapto en todo momento a las necesidades de cada familia, ofreciendo un acompañamiento respetuoso y lleno de cuidado en este proceso de cambio.
                     </p>
+                    <div className="space-y-4">
+                        <p className="font-semibold text-navy">FORMACIÓN</p>
+                        <ul className="space-y-3 text-xl text-gray list-disc pl-5 marker:text-green">
+                            <li>Diplomada universitaria en enfermería por la Universidad de Comillas.</li>
+                            <li>Formación como asesora de sueño infantil respetuoso (método Conecta).</li>
+                        </ul>
+                    </div>
                     <ContactButton label="VALORACIÓN GRATUITA" size="px-12 py-3 text-lg" />
                 </div>
                 <div className="col-span-6 flex items-center">
