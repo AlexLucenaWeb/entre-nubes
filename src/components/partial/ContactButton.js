@@ -16,6 +16,7 @@ const ContactButton = (props) => {
 
   const panelRef = useRef(null);
   const closeTimeoutRef = useRef(null);
+  const disparadorRef = useRef(null); // quién abrió el modal, para devolverle el foco
 
   useEffect(() => {
     setMounted(true);
@@ -31,25 +32,62 @@ const ContactButton = (props) => {
     const prevOverflow = document.body.style.overflow;
     document.body.style.overflow = "hidden";
 
+    const SELECTOR_FOCO =
+      'a[href], button:not([disabled]), input:not([tabindex="-1"]), textarea, select, [tabindex]:not([tabindex="-1"])';
+
+    const focusablesVisibles = () =>
+      [...(panelRef.current?.querySelectorAll(SELECTOR_FOCO) || [])].filter(
+        (el) => el.offsetParent !== null
+      );
+
     const onKeyDown = (e) => {
-      if (e.key === "Escape") closeModal();
+      if (e.key === "Escape") {
+        closeModal();
+        return;
+      }
+
+      // Trampa de foco: el tabulador da la vuelta dentro del modal en lugar de
+      // salirse a la página de detrás, que está tapada por la capa oscura.
+      if (e.key !== "Tab") return;
+
+      const focusables = focusablesVisibles();
+      if (!focusables.length) return;
+
+      const primero = focusables[0];
+      const ultimo = focusables[focusables.length - 1];
+      const activo = document.activeElement;
+
+      if (!panelRef.current?.contains(activo)) {
+        e.preventDefault();
+        primero.focus();
+      } else if (e.shiftKey && activo === primero) {
+        e.preventDefault();
+        ultimo.focus();
+      } else if (!e.shiftKey && activo === ultimo) {
+        e.preventDefault();
+        primero.focus();
+      }
     };
 
     window.addEventListener("keydown", onKeyDown);
 
     // foco inicial
     setTimeout(() => {
-      const first = panelRef.current?.querySelector("input, textarea, button");
-      first?.focus();
+      focusablesVisibles()[0]?.focus();
     }, 0);
 
     return () => {
       document.body.style.overflow = prevOverflow;
       window.removeEventListener("keydown", onKeyDown);
+
+      // Devolvemos el foco al botón que abrió el modal
+      disparadorRef.current?.focus?.();
     };
   }, [renderModal]);
 
-  function openModal() {
+  function openModal(e) {
+    disparadorRef.current = e?.currentTarget ?? null;
+
     if (closeTimeoutRef.current) clearTimeout(closeTimeoutRef.current);
 
     setRenderModal(true);

@@ -8,7 +8,7 @@ import { anchorScrollHandler } from "@/lib/utils"
 const Footer = () => {
 
     return (
-        <div data-component="Footer" className="w-full text-white font-normal">
+        <footer data-component="Footer" className="w-full text-white font-normal">
             <div className="w-full bg-navy px-5 py-16 flex justify-center items-center flex-col gap-6">
                 <Logo classes="text-green-bg"/>
                 <p>Duerme con tranquilidad, sueña con tranquilidad</p>
@@ -41,7 +41,7 @@ const Footer = () => {
                 <a href="#">Términos y condiciones</a>
                 <a href="#">Política de pacientes</a>
             </div>
-        </div>
+        </footer>
     )
 }
 

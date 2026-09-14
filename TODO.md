@@ -59,11 +59,26 @@ Cuando esté decidido, hay que reflejarlo en tres sitios:
     no en cada evento.
   - `planSuenoImg` sigue duplicada a propósito: el orden en móvil y escritorio
     difiere, y al compartir `src` el navegador la descarga una sola vez.
-- **P3** — Accesibilidad: labels del formulario comentados, foco no atrapado en
-  el modal, dots del slider sin `aria-current`, navegación duplicada.
-  - [x] Contraste de las tarjetas `bg-navy-light`: resuelto con `text-white`.
-    Pasa de heredar el color del `body` (que cambiaba según el tema del sistema
-    del visitante) a blanco fijo. Contraste medido: 7,45:1, cumple WCAG AAA.
+- **P3** — Accesibilidad: hecho todo menos el slider.
+  - [x] Contraste de las tarjetas `bg-navy-light`: `text-white`. Antes heredaba
+    el color del `body`, que cambiaba según el tema del sistema del visitante.
+    Contraste medido: 7,45:1, cumple WCAG AAA.
+  - [x] Formulario: los tres `<label>` estaban comentados. Ahora existen con
+    `sr-only` (sin cambio visual), más `aria-invalid` y `aria-describedby` en el
+    email y un `role="status"` que anuncia el resultado del envío.
+  - [x] Modal: trampa de foco con Tab y Shift+Tab, y devolución del foco al
+    botón que lo abrió.
+  - [x] `id="mobile-menu"` estaba duplicado en los dos headers, lo que además
+    rompía el `aria-controls` del sticky. Ahora `menu-movil-cabecera` y
+    `menu-movil-sticky`.
+  - [x] Landmarks: los 4 `<nav>` etiquetados, `Footer` pasa de `<div>` a
+    `<footer>`. axe: de 2 infracciones a 0.
+  - [x] Elementos fantasma en el tabulador: el sticky fuera de pantalla y los
+    menús móviles cerrados (`max-h-0`, que no saca del foco) llevan `inert`.
+    De 46 paradas de tabulación a 35.
+  - [x] Enlace "Saltar al contenido" y `aria-label` en el burger del sticky.
+  - [ ] **Slider**: falta `aria-current` en los puntos, una región `aria-live`
+    que anuncie el cambio de tarjeta y navegación con flechas del teclado.
 - **P4** — Conversión: sin analítica, email en texto plano en el footer, sin CTA
   de WhatsApp.
 - **P5** — Código: `headerLinks` duplicado en 3 componentes, clases inexistentes

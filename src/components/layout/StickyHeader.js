@@ -46,9 +46,12 @@ const StickyHeader = () => {
     setIsMenuOpen(false);
   };
 
+  // Mientras el sticky está fuera de pantalla va marcado como inerte: así sus
+  // enlaces no duplican los del header en el tabulador ni en el lector de pantalla.
   return (
     <div
       data-component="StickyHeader"
+      inert={!showStickyNav}
       className={`w-screen fixed z-50 left-0 flex justify-center bg-white shadow-md transition-transform duration-300 transform -top-24 py-3 ${
         showStickyNav ? "translate-y-24" : ""
       }`}
@@ -59,7 +62,7 @@ const StickyHeader = () => {
         </div>
 
         {/* Desktop nav */}
-        <nav className="hidden lg:flex gap-8 items-center">
+        <nav aria-label="Principal fija" className="hidden lg:flex gap-8 items-center">
           {headerLinks.map((link, index) => (
             <a
               key={index}
@@ -79,7 +82,8 @@ const StickyHeader = () => {
           className="lg:hidden"
           onClick={toggleMenu}
           aria-expanded={isMenuOpen}
-          aria-controls="mobile-menu"
+          aria-controls="menu-movil-sticky"
+          aria-label="Abrir menú"
         >
           <BurgerIcon />
         </button>
@@ -87,7 +91,9 @@ const StickyHeader = () => {
 
       {/* Burger Menu (Mobile) */}
       <nav
-        id="mobile-menu"
+        id="menu-movil-sticky"
+        inert={!isMenuOpen}
+        aria-label="Principal fija"
         className={`lg:hidden absolute left-0 top-full w-full bg-white shadow-md overflow-hidden
           transition-[max-height,opacity,transform] duration-300 ease-out
           ${isMenuOpen ? "max-h-96 opacity-100 translate-y-0" : "max-h-0 opacity-0 -translate-y-2 pointer-events-none"}

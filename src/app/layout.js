@@ -69,6 +69,14 @@ export default function RootLayout({ children }) {
   return (
     <html lang="es" className={`${geistSans.variable} ${geistMono.variable}`}>
       <body className="relative antialiased">
+        {/* Enlace de salto: invisible hasta que se le da el foco con el
+            tabulador. Evita tener que recorrer las dos navegaciones. */}
+        <a
+          href="#contenido"
+          className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[100] focus:rounded-full focus:bg-navy focus:px-5 focus:py-3 focus:font-semibold focus:text-white"
+        >
+          Saltar al contenido
+        </a>
         <CloudSprite />
         <HeaderNav />
         <StickyHeader />

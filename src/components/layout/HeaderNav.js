@@ -35,7 +35,7 @@ const HeaderNav = () => {
           </div>
 
           {/* Desktop nav */}
-          <nav className="hidden lg:flex gap-6 items-center">
+          <nav aria-label="Principal" className="hidden lg:flex gap-6 items-center">
             {headerLinks.map((link, index) => (
               <a
                 key={index}
@@ -55,7 +55,7 @@ const HeaderNav = () => {
             className="lg:hidden"
             onClick={toggleMenu}
             aria-expanded={isMenuOpen}
-            aria-controls="mobile-menu"
+            aria-controls="menu-movil-cabecera"
             aria-label="Abrir menú"
           >
             <BurgerIcon />
@@ -65,7 +65,9 @@ const HeaderNav = () => {
 
       {/* Mobile menu */}
       <nav
-        id="mobile-menu"
+        id="menu-movil-cabecera"
+        inert={!isMenuOpen}
+        aria-label="Principal"
         className={[
           "lg:hidden absolute left-0 right-0 top-full bg-green-bg shadow-md overflow-hidden z-50",
           "transition-all duration-300 ease-out",

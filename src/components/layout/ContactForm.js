@@ -88,9 +88,9 @@ export default function ContactForm() {
   return (
     <form data-component="ContactForm" onSubmit={handleSubmit} className="w-full space-y-4">
       <div className="space-y-1">
-        {/* <label htmlFor="name" className="text-sm font-medium text-navy">
+        <label htmlFor="name" className="sr-only">
           Nombre
-        </label> */}
+        </label>
         <input
           id="name"
           name="name"
@@ -104,9 +104,9 @@ export default function ContactForm() {
       </div>
 
       <div className="space-y-1">
-        {/* <label htmlFor="email" className="text-sm font-medium text-navy">
+        <label htmlFor="email" className="sr-only">
           Email
-        </label> */}
+        </label>
         <input
           id="email"
           name="email"
@@ -120,16 +120,22 @@ export default function ContactForm() {
               : "border-red-400 bg-red-50 focus:ring-red-200"
           }`}
           placeholder="email@email.com"
+          aria-invalid={form.email.length > 0 && !emailOk}
+          aria-describedby={
+            form.email.length > 0 && !emailOk ? "email-error" : undefined
+          }
         />
         {form.email.length > 0 && !emailOk && (
-          <p className="text-sm text-red-600">El email no parece válido.</p>
+          <p id="email-error" className="text-sm text-red-600">
+            El email no parece válido.
+          </p>
         )}
       </div>
 
       <div className="space-y-1">
-        {/* <label htmlFor="notes" className="text-sm font-medium text-navy">
+        <label htmlFor="notes" className="sr-only">
           Notas
-        </label> */}
+        </label>
         <textarea
           id="notes"
           name="notes"
@@ -137,7 +143,7 @@ export default function ContactForm() {
           value={form.notes}
           onChange={(e) => setForm((s) => ({ ...s, notes: e.target.value }))}
           className="w-full resize-none rounded-xl border border-black/10 bg-white px-4 py-3 text-navy outline-none focus:ring-2 focus:ring-black/10"
-          placeholder="Por favor, describre brevemente la situación"
+          placeholder="Por favor, describe brevemente la situación"
         />
       </div>
 
@@ -164,17 +170,21 @@ export default function ContactForm() {
         {status === "loading" ? "Enviando..." : "Enviar"}
       </button>
 
-      {status === "success" && (
-        <div className="rounded-xl border border-green-200 bg-green-50 px-4 py-3 text-green-800">
-          ¡Mensaje enviado! Te responderé lo antes posible.
-        </div>
-      )}
+      {/* role="status" hace que el lector de pantalla anuncie el resultado
+          del envío sin que haga falta mover el foco. */}
+      <div role="status" aria-live="polite">
+        {status === "success" && (
+          <div className="rounded-xl border border-green-200 bg-green-50 px-4 py-3 text-green-800">
+            ¡Mensaje enviado! Te responderé lo antes posible.
+          </div>
+        )}
 
-      {status === "error" && errorMsg && (
-        <div className="rounded-xl border border-red-200 bg-red-50 px-4 py-3 text-red-800">
-          <p>{errorMsg}</p>
-        </div>
-      )}
+        {status === "error" && errorMsg && (
+          <div className="rounded-xl border border-red-200 bg-red-50 px-4 py-3 text-red-800">
+            <p>{errorMsg}</p>
+          </div>
+        )}
+      </div>
     </form>
   );
 }

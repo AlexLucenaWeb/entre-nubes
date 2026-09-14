@@ -8,7 +8,7 @@ import JsonLd from "@/components/seo/JsonLd";
 
 export default function Home() {
   return (
-    <main className="">
+    <main id="contenido" tabIndex={-1} className="">
       <JsonLd />
       <div id="modal-root" />
       <Hero />
