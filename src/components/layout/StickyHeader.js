@@ -18,8 +18,15 @@ const StickyHeader = () => {
   ];
 
   useEffect(() => {
+    // Guardamos el último valor en una ref para no llamar a setState en cada
+    // píxel de scroll: solo cuando el sticky pasa de oculto a visible o al revés.
+    let ultimoValor = null;
+
     const handleScroll = () => {
       const shouldShow = window.scrollY > 100;
+      if (shouldShow === ultimoValor) return;
+      ultimoValor = shouldShow;
+
       setShowStickyNav(shouldShow);
 
       // Si el sticky desaparece, cerramos el menú móvil

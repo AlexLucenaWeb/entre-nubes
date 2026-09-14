@@ -29,7 +29,6 @@ const Asesorias = () => {
                             alt="Madre con su bebé en brazos junto a una cuna"
                             width={541}
                             height={541}
-                            priority  
                         />
                     </div>
                 </div>
@@ -78,7 +77,6 @@ const Asesorias = () => {
                     alt="Madre con su bebé en brazos junto a una cuna"
                     width={541}
                     height={541}
-                    priority  
                 />
             </div>
             <div className="pointer-events-none absolute inset-x-0 bottom-0 h-24 md:h-32 lg:h-40 2xl:h-60 overflow-hidden flex items-end">

@@ -17,8 +17,7 @@ const QuienSoy = () => {
                             src="/images/lauraOpt.png"
                             alt="Laura de la Corte, enfermera y asesora de sueño infantil"
                             width={154}
-                            height={154}
-                            priority  
+                            height={199}
                         />
                     </div>
 

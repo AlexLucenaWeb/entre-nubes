@@ -3,6 +3,7 @@ import HeaderNav from "@/components/layout/HeaderNav";
 import Footer from "@/components/layout/Footer";
 import "./globals.css";
 import StickyHeader from "@/components/layout/StickyHeader";
+import CloudSprite from "@/components/layout/CloudSprite";
 import { site, siteUrl } from "@/lib/site";
 
 const geistSans = Geist({
@@ -68,6 +69,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="es" className={`${geistSans.variable} ${geistMono.variable}`}>
       <body className="relative antialiased">
+        <CloudSprite />
         <HeaderNav />
         <StickyHeader />
         {children}

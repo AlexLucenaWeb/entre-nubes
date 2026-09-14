@@ -47,9 +47,18 @@ Cuando esté decidido, hay que reflejarlo en tres sitios:
 - **P0 #1** — RGPD y aviso legal: páginas de privacidad y aviso legal, y
   checkbox de consentimiento en el formulario. Los enlaces del footer ya existen
   apuntando a `href="#"`, a la espera de destino.
-- **P2** — Rendimiento: `priority` en 4 imágenes, foto de Laura deformada
-  (991×1281 servida como 154×154), `planSuenoImg` duplicada, SVG de nubes
-  repetido, SVGO, listeners sin throttle.
+- [x] **P2** — Rendimiento: **completo**.
+  - Foto de Laura: declaraba 154×154 sobre un original 991×1281, así que salía
+    achatada. Ahora 154×199 (ratio real). Desaparece el warning de next/image.
+  - `priority`: de 4 imágenes a 1 (solo el hero, que es el LCP).
+  - SVGO sobre los dos SVG: 111 KB → 87 KB. Son bytes reales para el visitante
+    porque next/image **no optimiza SVG**: se sirven crudos desde `/images/`.
+  - Nubes: el `path` de 2.374 caracteres se define una vez en `CloudSprite.js`
+    y los 3 separadores lo reutilizan con `<use>`. HTML: −8,5 KB.
+  - Listeners de scroll y resize: solo llaman a `setState` al cruzar el umbral,
+    no en cada evento.
+  - `planSuenoImg` sigue duplicada a propósito: el orden en móvil y escritorio
+    difiere, y al compartir `src` el navegador la descarga una sola vez.
 - **P3** — Accesibilidad: labels del formulario comentados, foco no atrapado en
   el modal, dots del slider sin `aria-current`, navegación duplicada.
   - [x] Contraste de las tarjetas `bg-navy-light`: resuelto con `text-white`.

@@ -83,9 +83,16 @@ export default function Slider() {
   const sliderRef = useRef(null);
 
   useEffect(() => {
+    // Solo nos interesa el momento en que se cruza el breakpoint, no cada
+    // píxel del arrastre de la ventana.
+    let ultimoValor = null;
+
     const handleResize = () => {
       const nextSlidesPerView =
         window.innerWidth < 768 ? MOBILE_SLIDES_PER_VIEW : DESKTOP_SLIDES_PER_VIEW;
+
+      if (nextSlidesPerView === ultimoValor) return;
+      ultimoValor = nextSlidesPerView;
 
       setSlidesPerView(nextSlidesPerView);
       // mantenemos el índice y lo “clamp” por si acaso
